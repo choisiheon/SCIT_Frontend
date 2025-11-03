@@ -54,7 +54,7 @@
 | 순서 | 내용 | 명령어 예시 |
 | :--- | :--- | :--- |
 | **1.** | `main` 브랜치로 이동 및 최신 내용 반영 | `git checkout main` → `git pull` |
-| **2.** | 작업용 **개인 브랜치 생성** 및 이동 | `git checkout -b feature/나의_작업_이름` |
+| **2.** | 작업용 **개인 브랜치 생성** 및 이동 | `git checkout -b develop/나의_이름` |
 | **3.** | 작업 및 커밋 진행 | `git commit -m "feat: 기능 추가"` |
 | **4.** | 개인 브랜치를 원격에 푸시 | `git push origin feature/나의_작업_이름` |
 | **5.** | GitHub에서 **Pull Request** 생성 | 웹사이트에서 PR을 열어 팀원에게 코드 리뷰 요청 |
