@@ -1,0 +1,89 @@
+:root{
+    --green:#057a4a;
+    --text:#111;
+}
+body{margin:0;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;}
+.site-header{
+    border-bottom:1px solid rgba(0,0,0,0.04);
+    padding:18px 32px;
+}
+.header-inner{
+    max-width:1200px;
+    margin:0 auto;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:24px;
+}
+
+/* 로고 */
+.logo{
+    font-family:'Great Vibes', cursive;
+    font-size:34px;
+    color:var(--text);
+    text-decoration:none;
+}
+
+/* 네비 메뉴: 가운데 영역처럼 보이도록 여유주기 */
+.nav{
+    display:flex;
+    align-items:center;
+    gap:28px;
+    margin-left:auto; /* 로고 뒤로 밀어냄 */
+    margin-right:24px;
+}
+.nav a{
+    color:var(--text);
+    text-decoration:none;
+    font-weight:500;
+    white-space:nowrap;
+}
+
+/* 우측 언어 버튼 */
+.lang-wrap{
+    position:relative;
+}
+.lang-btn{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    background:var(--green);
+    color:#fff;
+    padding:8px 14px;
+    border-radius:28px;
+    border:none;
+    cursor:pointer;
+    font-weight:600;
+    font-size:14px;
+}
+.lang-btn .globe{font-size:16px}
+
+/* 드롭다운 */
+.lang-dropdown{
+    position:absolute;
+    right:0;
+    top:calc(100% + 8px);
+    background:#fff;
+    border:1px solid rgba(0,0,0,0.08);
+    box-shadow:0 6px 18px rgba(0,0,0,0.06);
+    border-radius:8px;
+    min-width:160px;
+    display:none;
+    padding:8px 0;
+    z-index:20;
+}
+.lang-dropdown.show{display:block;}
+.lang-dropdown button{
+    width:100%;
+    text-align:left;
+    background:none;
+    border:none;
+    padding:9px 16px;
+    cursor:pointer;
+    font-size:14px;
+}
+.lang-dropdown button:hover{background:rgba(0,0,0,0.02)}
+/* 반응형: 좁아지면 메뉴 숨김, 필요시 햄버거로 대체 가능 */
+@media (max-width:780px){
+    .nav{display:none}
+}
