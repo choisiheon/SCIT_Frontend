@@ -6,132 +6,8 @@
     <title>심리테스트</title>
     <script src="./js/footer.js"></script>
     <script src="./js/header.js"></script>
-    <style>
-        /*<!--  main1용 CSS  -->*/
-        /* 기본 스타일 초기화 */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        /* 1. 메인 컨테이너 (#main1, .visual_wrap) */
-        .visual_wrap {
-            height: 100vh;
-            position: relative;
-            overflow: hidden;
-        }
-
-        /* 1-1. 가독성 향상을 위한 반투명 오버레이 (z-index: 5) */
-        .visual_wrap::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.4);
-            z-index: 5;
-        }
-
-        /* 2. 배경 영상 (.video_wrap 및 video) */
-        .video_wrap {
-            position: absolute;
-            /* 정중앙 배치 공식 */
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-
-            min-width: 100%;
-            min-height: 100%;
-            width: auto;
-            height: auto;
-
-            z-index: 1;
-        }
-        .video_wrap video {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        /* 3. 자막 및 버튼 (.floatingBanner) */
-        .floatingBanner {
-            /* ... (기존 스타일 유지: position, top, left, transform, z-index, text-align, main_title 스타일) ... */
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 10;
-            text-align: center;
-
-            /* 네온 스타일 (밝은 청록색) */
-            color: #00FFD1;
-            text-shadow: 0 0 5px #00FFD1,
-            0 0 15px #00FFFF;
-        }
-
-        .main_title {
-            font-size: 2.5rem;
-            margin-bottom: 30px;
-            font-weight: bold;
-        }
-
-        /* ⭐ '스캔 승인' 버튼 새로운 스타일 적용 ⭐ */
-        .btn_wrap input[type='button'] {
-            padding: 15px 40px; /* 패딩을 늘려 버튼 크기를 키웁니다 */
-            font-size: 1.2em; /* 글자 크기 키우기 */
-            font-weight: bold; /* 글자를 더 굵게 */
-            cursor: pointer;
-            border: 2px solid #00FFD1; /* 네온 색상 테두리 */
-            background-color: transparent; /* 배경을 투명하게 */
-            color: #00FFD1; /* 글자 색상도 네온 색상으로 */
-            border-radius: 8px; /* 모서리를 약간 둥글게 */
-            transition: all 0.3s ease; /* 호버 효과를 위한 부드러운 전환 */
-            box-shadow: 0 0 10px rgba(0, 255, 209, 0.5), /* 은은한 네온 그림자 */
-            0 0 20px rgba(0, 255, 209, 0.3);
-        }
-
-        /* ⭐ 버튼 호버(마우스 올렸을 때) 효과 ⭐ */
-        .btn_wrap input[type='button']:hover {
-            background-color: rgba(0, 255, 209, 0.1); /* 배경에 살짝 색상 입히기 */
-            box-shadow: 0 0 15px rgba(0, 255, 209, 0.7), /* 호버 시 네온 효과 강조 */
-            0 0 30px rgba(0, 255, 209, 0.5);
-            transform: translateY(-2px); /* 살짝 위로 뜨는 효과 */
-        }
-
-        /* ⭐ 버튼 클릭(활성화) 효과 ⭐ */
-        .btn_wrap input[type='button']:active {
-            transform: translateY(0); /* 클릭 시 원상복귀 */
-            box-shadow: 0 0 5px rgba(0, 255, 209, 0.3); /* 클릭 시 네온 효과 약화 */
-        }
-        /*<!-- main1용 CSS  -->*/
-
-
-
-
-        div {
-            background-color: lightgray;
-            margin: 2em;
-        }
-
-        .button-container {
-            text-align: center;
-            /* 버튼을 수평 가운데 정렬 */
-        }
-    </style>
-    <script>
-        // window.open() 대신 현재 창에서 이동하도록 수정
-        function pgTest() {
-            // ./pages/test.html 경로로 현재 창에서 이동합니다.
-            window.location.href = "./pages/test.html";
-        }
-
-        function pgChar1() {
-            // ./pages/character1.html 경로로 현재 창에서 이동합니다.
-            window.location.href = "./pages/character1.html";
-        }
-    </script>
+    <script src="./js/main1.js"></script>
+    <link rel="stylesheet" href="./css/main.css">
 </head>
 
 <body>
@@ -159,27 +35,84 @@
     </div>
 
 </section>
-<script src="./js/main1.js"></script>
+<!-- main1 끝 -->
 
-<div id="main2">
-    <h1>동료 영웅들과 함께 싸우세요</h1>
-    <p>최고의 팀원들과 프로젝트를 '캐리'하세요
-        성향을 분석하고, 팀을 이루어 4월 30일의 마감일까지 완벽하게 생존하세요.</p>
-    <table>
-        <tr>
-            <th>사진 1</th>
-            <th>사진 1</th>
-            <th>사진 1</th>
-            <th>사진 1</th>
-        </tr>
-        <tr>
-            <td>트롤 방지 및 멘탈 보호</td>
-            <td>새로운 유형의 발견</td>
-            <td>평단의 극찬을 받을 협업</td>
-            <td>데이터 기반 궁합 매칭</td>
-        </tr>
-    </table>
-</div>
+<section id="main2" class="blz-highlights-carousel">
+
+    <div class="carousel-header">
+        <h2 class="section-title">동료 영웅들과 함께 싸우세요</h2>
+        <p class="section-description">최고의 팀원들과 프로젝트를 '캐리'하세요<br>
+            성향을 분석하고, 팀을 이루어 4월 30일의 마감일까지 완벽하게 생존하세요.</p>
+    </div>
+
+    <div class="carousel-items">
+
+        <div class="carousel-item">
+            <div class="item-image">
+                <img src="./assets/img/격투가.png" alt="트롤 방지 및 멘탈 보호">
+            </div>
+            <div class="item-text">
+                <h3>트롤 방지 및 멘탈 보호</h3>
+                <p>팀원의 멘탈을 보호하고 트롤을 방지하는 협업 전략을 세워보세요.</p>
+            </div>
+        </div>
+
+        <div class="carousel-item">
+            <div class="item-image">
+                <img src="./assets/img/격투가.png" alt="새로운 유형의 발견">
+            </div>
+            <div class="item-text">
+                <h3>새로운 유형의 발견</h3>
+                <p>MBTI를 넘어선 새로운 협업 유형을 발견하고 팀의 시너지를 높이세요.</p>
+            </div>
+        </div>
+
+        <div class="carousel-item">
+            <div class="item-image">
+                <img src="./assets/img/격투가.png" alt="평단의 극찬을 받을 협업">
+            </div>
+            <div class="item-text">
+                <h3>평단의 극찬을 받을 협업</h3>
+                <p>완벽한 데이터 분석을 통해 모두가 인정하는 성공적인 프로젝트를 만듭니다.</p>
+            </div>
+        </div>
+
+        <div class="carousel-item">
+            <div class="item-image">
+                <img src="./assets/img/격투가.png" alt="데이터 기반 궁합 매칭">
+            </div>
+            <div class="item-text">
+                <h3>데이터 기반 궁합 매칭</h3>
+                <p>나와 가장 잘 맞는, 또는 가장 피해야 할 팀원 유형을 데이터로 확인하세요.</p>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- main2 끝-->
+
+<!--<div id="main2">-->
+<!--    <h1>동료 영웅들과 함께 싸우세요</h1>-->
+<!--    <p>최고의 팀원들과 프로젝트를 '캐리'하세요-->
+<!--        성향을 분석하고, 팀을 이루어 4월 30일의 마감일까지 완벽하게 생존하세요.</p>-->
+<!--    <table>-->
+<!--        <tr>-->
+<!--            <th>사진 1</th>-->
+<!--            <th>사진 1</th>-->
+<!--            <th>사진 1</th>-->
+<!--            <th>사진 1</th>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--            <td>트롤 방지 및 멘탈 보호</td>-->
+<!--            <td>새로운 유형의 발견</td>-->
+<!--            <td>평단의 극찬을 받을 협업</td>-->
+<!--            <td>데이터 기반 궁합 매칭</td>-->
+<!--        </tr>-->
+<!--    </table>-->
+<!--</div>-->
+
 <div id="main3">
     <table>
         <tr>
