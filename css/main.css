@@ -107,7 +107,7 @@
     overflow: hidden;
 }
 #main2 .carousel-header {
-    padding: 100px 0 0px 0;
+    padding: 100px 0 0;
     max-width: 800px;
     margin: 0 auto 50px auto;
 }
