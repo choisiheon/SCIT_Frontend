@@ -1,15 +1,131 @@
 <!DOCTYPE html>
 <html lang="ko">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>연애 유형 테스트</title>
+    <link rel="stylesheet" href="../css/test.css">
 </head>
-
 <body>
-<h1>캐릭터 1</h1>
-<p>설명설명</p>
-</body>
 
+<main class="quiz-main">
+    <div class="progress-wrap">
+        <div class="progress-info">
+            <span>진행률</span>
+            <span>0%</span>
+        </div>
+        <div class="progress-track">
+            <div class="progress-fill" style="width: 0;"></div>
+        </div>
+    </div>
+
+    <section class="question-section">
+
+        <div class="question-card" data-question="0">
+            <div class="text-center">
+                <h3 class="q-title">자신보다 어른스러운 사람이 좋다</h3>
+            </div>
+
+            <div class="hearts-container">
+                <label class="img-btn">
+                    <input type="radio" name="q1" value="A">
+                    <img src="/assets/img/emptyCircle.png" alt="A" class="icon-img pink size-l">
+                </label>
+
+                <label class="img-btn">
+                    <input type="radio" name="q1" value="B">
+                    <img src="/assets/img/emptyCircle.png" alt="B" class="icon-img teal size-l">
+                </label>
+            </div>
+
+            <div class="q-labels-bottom">
+                <span>A. 아니오</span>
+                <span>B. 예</span>
+            </div>
+        </div>
+
+        <hr class="divider">
+
+
+        <div class="question-card" data-question="1">
+            <div class="text-center">
+                <h3 class="q-title">쉽게 반하는 편이다</h3>
+            </div>
+
+            <div class="hearts-container">
+                <label class="img-btn">
+                    <input type="radio" name="q2" value="A">
+                    <img src="/assets/img/emptyCircle.png" alt="A" class="icon-img pink size-l">
+                </label>
+                <label class="img-btn">
+                    <input type="radio" name="q2" value="B">
+                    <img src="/assets/img/emptyCircle.png" alt="B" class="icon-img teal size-l">
+                </label>
+            </div>
+
+            <div class="q-labels-bottom">
+                <span>A. 아니오</span>
+                <span>B. 예</span>
+            </div>
+        </div>
+
+        <hr class="divider">
+
+
+        <div class="question-card" data-question="2">
+            <div class="text-center">
+                <h3 class="q-title">연인이 있을 때는 이성이 있는 자리에<br>가지 않도록 하고 있다</h3>
+
+            </div>
+
+            <div class="hearts-container">
+                <label class="img-btn">
+                    <input type="radio" name="q3" value="A">
+                    <img src="/assets/img/emptyCircle.png" alt="A" class="icon-img pink size-l">
+                </label>
+                <label class="img-btn">
+                    <input type="radio" name="q3" value="B">
+                    <img src="/assets/img/emptyCircle.png" alt="B" class="icon-img teal size-l">
+                </label>
+            </div>
+
+            <div class="q-labels-bottom">
+                <span>A. 아니오</span>
+                <span>B. 예</span>
+            </div>
+        </div>
+
+        <hr class="divider">
+
+
+        <div class="question-card" data-question="3">
+            <div class="text-center">
+                <h3 class="q-title">어느 쪽이냐 하면 연인에게 맞춰주는 편이다</h3>
+            </div>
+
+            <div class="hearts-container">
+                <label class="img-btn">
+                    <input type="radio" name="q4" value="A">
+                    <img src="/assets/img/emptyCircle.png" alt="A" class="icon-img pink size-l">
+                </label>
+                <label class="img-btn">
+                    <input type="radio" name="q4" value="B">
+                    <img src="/assets/img/emptyCircle.png" alt="B" class="icon-img teal size-l">
+                </label>
+            </div>
+
+            <div class="q-labels-bottom">
+                <span>A. 아니오</span>
+                <span>B. 예</span>
+            </div>
+        </div>
+
+        <div class="bottom-nav">
+            <button class="btn-next">다음 페이지 →</button>
+        </div>
+
+    </section>
+</main>
+
+</body>
 </html>
