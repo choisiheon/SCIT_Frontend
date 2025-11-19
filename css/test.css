@@ -1,0 +1,201 @@
+/* =========================================
+   1. 기본 설정 및 변수
+   ========================================= */
+:root {
+    --color-pink: #f472b6;
+    --color-teal: #2dd4bf;
+    --color-emerald: #047857;
+    --color-gray-bg: #e5e7eb;
+    --text-main: #1f2937;
+    --text-sub: #4b5563;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+    font-family: 'Pretendard', -apple-system, sans-serif;
+    background-color: #fff;
+    color: var(--text-main);
+}
+
+/* =========================================
+   2. 레이아웃 (가운데 정렬 핵심!)
+   ========================================= */
+.quiz-main {
+    width: 100%;          /* ⭐ 추가: 너비 100% 필수 */
+    max-width: 800px;     /* 너무 넓어지지 않게 제한 */
+    margin: 0 auto;       /* ⭐ 핵심: 블록 가운데 정렬 */
+    position: relative;
+}
+
+.question-section {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;       /* 질문 카드들 중간 */
+    padding: 40px 20px;
+    text-align: center;   /* 내부 글자/인라인 요소 가운데 정렬 */
+}
+
+/* =========================================
+   3. 진행바 스타일
+   ========================================= */
+.progress-wrap {
+    width: 100%;
+    max-width: 800px;     /* 메인 너비와 맞춤 */
+    margin: 0 auto;       /* 가운데 정렬 */
+    background-color: #fff;
+    padding: 24px 16px;
+    position: sticky;     /* 스크롤 내려도 상단에 붙기 */
+    top: 0;
+    z-index: 10;
+}
+
+.progress-info {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    color: var(--text-sub);
+    margin-bottom: 8px;
+}
+
+.progress-track {
+    width: 100%;
+    height: 10px;
+    background-color: var(--color-gray-bg);
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background-color: #14b8a6;
+    border-radius: 20px;
+    transition: width 0.3s ease;
+}
+
+/* =========================================
+   4. 질문 카드 스타일
+   ========================================= */
+.question-card {
+    margin-bottom: 40px;
+    /* border-bottom 제거 (구분선 hr 태그 사용하므로) */
+}
+
+.text-center {
+    display: flex;          /* Flex로 변경해서 */
+    flex-direction: column; /* 위아래로 쌓고 */
+    align-items: center;    /* ⭐ 가로축 가운데 정렬 */
+    margin-bottom: 30px;
+}
+
+.q-title {
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-bottom: 16px;
+    color: var(--text-main);
+    word-break: keep-all; /* 단어 중간에 끊기지 않게 */
+}
+
+.q-sub-labels {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    color: var(--text-sub);
+    font-size: 0.95rem;
+}
+
+/* =========================================
+   5. 선택지 버튼 (동그라미 이미지) 수정
+   ========================================= */
+
+/* 1. 동그라미 버튼 담는 통 */
+.hearts-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* ⭐ 핵심: 두 원 사이의 간격  */
+    gap: 130px;
+
+    margin-bottom: 12px;
+}
+
+/* 라디오 버튼 숨김 */
+.img-btn input[type="radio"] { display: none; }
+
+/* 이미지 공통 */
+.icon-img {
+    display: block;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: transform 0.2s ease;
+    padding: 2px;
+}
+.icon-img:hover { transform: scale(1.1); }
+
+
+/* 2. 원 크기 수정 (작게!) */
+/* size-l 클래스를 썼지만, 크기를 45px로 줄여서 적용합니다 */
+.size-l {
+    width: 45px;  /* 기존 60px -> 45px 로 축소 */
+    height: 45px;
+}
+/* (참고: size-m, size-s는 안 쓰시면 지워도 됩니다) */
+.size-m { width: 35px; height: 35px; }
+.size-s { width: 25px; height: 25px; }
+
+
+/* 색상 효과 */
+.img-btn input:checked + .icon-img.pink {
+    background-color: var(--color-pink);
+    box-shadow: 0 0 12px rgba(244, 114, 182, 0.6);
+}
+.img-btn input:checked + .icon-img.teal {
+    background-color: var(--color-teal);
+    box-shadow: 0 0 12px rgba(45, 212, 191, 0.6);
+}
+
+
+/* 3. 하단 A/B 텍스트 수정 (간격 맞추기) */
+.q-labels-bottom {
+    display: flex;
+    /* ⭐ 핵심: 양끝 배치가 아니라, 중앙 정렬 후 gap으로 간격 조절 */
+    justify-content: center;
+
+    /* ⭐ 중요: .hearts-container의 gap과 똑같이 설정*/
+    gap: 125px;
+
+    width: 100%;
+    margin: 0 auto;
+    font-size: 0.9rem;
+    color: #9ca3af;
+    font-weight: 600;
+    padding: 0;
+}
+/* =========================================
+   6. 기타 (구분선, 버튼)
+   ========================================= */
+.divider {
+    border: 0;
+    height: 1px;
+    background-color: #e5e7eb;
+    margin: 0 auto 50px auto; /* 위아래 여백 */
+    width: 100%;
+}
+
+.bottom-nav {
+    margin-top: 60px;
+    text-align: center;
+}
+
+.btn-next {
+    background-color: var(--color-emerald);
+    color: white;
+    font-size: 1.1rem;
+    font-weight: bold;
+    padding: 14px 40px;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+.btn-next:hover { background-color: #065f46; }
