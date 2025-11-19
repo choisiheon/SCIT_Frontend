@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>캐릭터 선택</title>
+    <link rel="stylesheet" href="./css/main4.css" />
+</head>
+<body>
+
+<section id="CHAR_SELECTOR">
+
+    <!-- 배경 & 큰 캐릭터 -->
+    <div class="visual-card">
+        <div class="visual-bg" id="visualBg"></div>
+
+        <!-- 큰 캐릭터 (portrait) -->
+        <div class="portrait">
+            <img id="charPortrait" src="" alt="">
+        </div>
+    </div>
+
+    <!-- 왼쪽 텍스트 -->
+    <div class="info-overlay">
+        <div class="warrior-info">
+            <h2 class="title" id="charName"></h2>
+            <p class="description" id="charDesc"></p>
+
+            <a href="#" class="btn-detail">
+                자세히 알아보기 <span class="arrow">→</span>
+            </a>
+
+            <button class="btn-start">지금 시작하기</button>
+        </div>
+    </div>
+
+    <!-- 선택창 프레임 -->
+    <div class="char-list-frame">
+        <div class="char-list-grid" id="charList"></div>
+    </div>
+
+</section>
+
+<script src="./js/main4.js" defer></script>
+</body>
+</html>
