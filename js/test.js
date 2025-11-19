@@ -2,7 +2,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     console.log("✅ 자바스크립트 파일(test2.js)이 정상적으로 로드되었습니다!");
 
-    // ====== 설정 값 ======
+    // ++====== 설정 값 ======++
     const TOTAL_PAGES = 4; // 총 페이지 수
     const QUESTIONS_PER_PAGE = 4; // 페이지당 문항 수
     const TOTAL_QUESTIONS = TOTAL_PAGES * QUESTIONS_PER_PAGE; // 총 문항 수 (16)
