@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>캐릭터 로딩 중...</title>
+
+    <style>
+        /* css */
+    </style>
+</head>
+<body>
+
+<header>
+</header>
+
+<section id="character-detail">
+
+    <div class="frame-box">
+        <div class="frame-corner tl"></div>
+        <div class="frame-corner tr"></div>
+        <div class="frame-corner bl"></div>
+        <div class="frame-corner br"></div>
+        <div class="frame-inner">
+            <table class="hero-table">
+                <tr>
+                    <td>
+                        <h1 id="mbti-code">...</h1>
+                        <h2 id="job-name">...</h2>
+                        <div class="divider-line"></div>
+                        <p id="fantasy-intro">...</p>
+                        <div id="tag-display" class="tag-display">
+                        </div>
+                    </td>
+                    <td rowspan="2">
+                        <img id="character-image" src="" alt="캐릭터 이미지">
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <div class="frame-box">
+        <div class="frame-corner tl"></div>
+        <div class="frame-corner tr"></div>
+        <div class="frame-corner bl"></div>
+        <div class="frame-corner br"></div>
+        <div class="frame-inner">
+            <h3>팀 프로젝트에서 당신은?</h3>
+            <div class="divider-line"></div>
+            <p id="team-intro">...</p>
+            <br>
+        </div>
+    </div>
+
+    <div class="frame-box">
+        <div class="frame-corner tl"></div>
+        <div class="frame-corner tr"></div>
+        <div class="frame-corner bl"></div>
+        <div class="frame-corner br"></div>
+        <div class="frame-inner">
+            <h3>장점 (긍정적 영향)</h3>
+            <div class="divider-line"></div>
+            <p id="positive-impact">...</p>
+            <br>
+
+            <h3>단점 (부정적 영향)</h3>
+            <div class="divider-line"></div>
+            <p id="negative-impact">...</p>
+            <br>
+        </div>
+    </div>
+
+    <div class="frame-box">
+        <div class="frame-corner tl"></div>
+        <div class="frame-corner tr"></div>
+        <div class="frame-corner bl"></div>
+        <div class="frame-corner br"></div>
+        <div class="frame-inner">
+            <h3>궁합 조언</h3>
+            <div class="divider-line"></div>
+
+            <h4>Best Type</h4>
+            <h5 id="good-type">...</h5>
+            <p>(상세 설명은 JSON에 없습니다.)</p>
+            <br>
+
+            <h4>Good Type (보통 관계)</h4>
+            <h5 id="normal-type">...</h5>
+            <p>(상세 설명은 JSON에 없습니다.)</p>
+            <br>
+
+            <h4>Challenge Type (나쁜 관계)</h4>
+            <h5 id="bad-type">...</h5>
+            <p>(상세 설명은 JSON에 없습니다.)</p>
+            <br>
+        </div>
+    </div>
+
+</section>
+
+<footer>
+</footer>
+
+<script>
+    // URL 파라미터에서 변환 코드를 가져오는 함수 (예: ?mbti=EPAF)
+    function getMbtiFromUrl() {
+        const params = new URLSearchParams(window.location.search);
+        // 'mbti' 파라미터가 없으면 'EPAF'를 기본값으로 사용 (테스트용)
+        return params.get('mbti') || 'EPAF';
+    }
+
+    // JSON 데이터를 로드하고 HTML에 삽입하는 함수
+    async function loadCharacterData() {
+        const mbtiCode = getMbtiFromUrl();
+        const jsonFilePath = 'character_data.json'; // JSON 파일 경로
+
+        try {
+            // 1. JSON 파일 불러오기
+            const response = await fetch(jsonFilePath);
+            if (!response.ok) {
+                // HTTP 오류 발생 시
+                document.getElementById('character-detail').innerHTML = `<h2 style="color: red;">JSON 파일 로드 오류: status ${response.status}</h2>`;
+                return;
+            }
+            const data = await response.json();
+
+            // 2. 변환 코드(code)가 일치하는 캐릭터 데이터 찾기
+            // JSON 데이터의 키가 'code'로 변경되었습니다.
+            const character = data.find(c => c.code === mbtiCode);
+
+            if (!character) {
+                document.getElementById('character-detail').innerHTML = `<h2 style="color: red;">캐릭터 코드 '${mbtiCode}'를 찾을 수 없습니다. (JSON 파일 확인 필요)</h2>`;
+                return;
+            }
+
+            // 3. 데이터를 각 HTML 요소에 삽입
+            // 변환된 영어 키 (role, summary_fantasy 등)를 사용합니다.
+            document.title = `${character.code} | ${character.role} 페이지`;
+
+            // 1번 프레임
+            document.getElementById('mbti-code').textContent = character.code;
+            document.getElementById('job-name').textContent = character.role;
+            document.getElementById('fantasy-intro').textContent = character.summary_fantasy;
+
+            // 이미지 경로 설정 (변환 코드 사용)
+            document.getElementById('character-image').src = `../char_removebg/${character.code}_bg-removebg-preview.png`;
+
+            // 태그 처리 및 삽입
+            const tags = (character.tags || '').split('#').filter(t => t.trim() !== '');
+            const tagHtml = tags.map(tag => `<span>#${tag.trim()}</span>`).join('');
+            document.getElementById('tag-display').innerHTML = tagHtml;
+
+
+            // 2번 프레임
+            document.getElementById('team-intro').textContent = character.summary_team;
+
+            // 3번 프레임
+            document.getElementById('positive-impact').textContent = character.pros;
+            document.getElementById('negative-impact').textContent = character.cons;
+
+            // 4번 프레임 (궁합 조언)
+            document.getElementById('good-type').textContent = character.good_match;
+            document.getElementById('normal-type').textContent = character.neutral_match;
+            document.getElementById('bad-type').textContent = character.bad_match;
+
+        } catch (error) {
+            console.error('데이터 로드 중 심각한 오류 발생:', error);
+            document.getElementById('character-detail').innerHTML = `<h2 style="color: red;">데이터 로드 오류: ${error.message}</h2>`;
+        }
+    }
+
+    // 페이지 로드 시 데이터 로드 함수 실행
+    window.onload = loadCharacterData;
+</script>
+
+</body>
+</html>
