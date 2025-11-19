@@ -52,13 +52,29 @@
     z-index: 10;
     text-align: center;
     color: #00FFD1;
-    text-shadow: 0 0 5px #00FFD1, 0 0 15px #00FFFF;
+
+    /* ⭐ 핵심: 반투명하고 둥근 모서리의 배경 네모 추가 ⭐ */
+    background-color: rgba(0, 0, 0, 0.4); /* 어둡고 반투명한 배경 */
+    padding: 30px 50px; /* 배경 안쪽 여백 (텍스트와의 간격) */
+    border-radius: 15px; /* 모서리 둥글게 (원하는 값으로 조절 가능) */
+
+    /* ⭐ 그림자 효과는 눈에 띄지 않게 최소화 ⭐ */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* 은은한 그림자로 입체감만 살짝 */
+    text-shadow: 0 0 5px #00FFD1; /* 텍스트의 발광 그림자도 은은하게 최소화 */
 }
+
 #main1 .main_title {
     font-size: 2.5rem;
-    margin-bottom: 30px;
+
+    /* 배경이 생겼으므로 h1의 마진을 초기화하거나 조정 */
+    margin: 0 0 20px 0; /* 상단 마진 0, 하단 마진 20px */
+    padding: 0; /* h1 자체의 패딩 제거 */
+
     font-weight: bold;
+
 }
+
+
 /* 버튼 스타일 */
 #main1 .btn_wrap input[type='button'] {
     padding: 15px 40px;
