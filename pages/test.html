@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RPG 팀플 성향 테스트</title>
+    <link rel="stylesheet" href="../css/test.css">
+    <script src="../js/test.js"></script>
+</head>
+<body>
+
+<main class="quiz-main">
+    <!-- 상단 고정 진행률 바 (수정됨) -->
+    <div class="progress-wrap">
+        <!-- 1. 왼쪽 라벨 -->
+        <span class="progress-label">⚔️ 퀘스트</span>
+
+        <!-- 2. 중앙 게이지 바 -->
+        <div class="progress-track">
+            <div class="progress-fill" style="width: 0;"></div>
+        </div>
+
+        <!-- 3. 오른쪽 퍼센트 -->
+        <span class="progress-percent">0%</span>
+    </div>
+
+    <section class="question-section">
+
+        <!-- ⭐ Page 1: [E vs I] – 소통 방식 (4문항) -->
+        <div class="quiz-page" data-page-index="0">
+            <h3 class="page-title">챕터 1. 소통 스타일 퀘스트 (E vs I)</h3>
+
+            <div class="question-card" data-question="0">
+                <h4 class="q-title">팀플 시작할 때 나는…</h4>
+                <div class="choices-container">
+                    <label class="choice-btn pink">
+                        <input type="radio" name="q0" value="E">
+                        <span class="choice-content">
+                            <span class="choice-label">A.</span>
+                            <span class="choice-text">일단 단톡에서 아이디어부터 던져본다.</span>
+                        </span>
+                    </label>
+                    <label class="choice-btn teal">
+                        <input type="radio" name="q0" value="I">
+                        <span class="choice-content">
+                            <span class="choice-label">B.</span>
+                            <span class="choice-text">혼자 생각 정리 먼저 하고 말한다.</span>
+                        </span>
+                    </label>
+                </div>
+            </div>
+            <hr class="divider">
+
+            <div class="question-card" data-question="1">
+                <h4 class="q-title">회의 분위기는…</h4>
+                <div class="choices-container">
+                    <label class="choice-btn pink">
+                        <input type="radio" name="q1" value="E">
+                        <span class="choice-content">
+                            <span class="choice-label">A.</span>
+                            <span class="choice-text">시끌시끌하게 의견 터지는 게 좋다.</span>
+                        </span>
+                    </label>
+                    <label class="choice-btn teal">
+                        <input type="radio" name="q1" value="I">
+                        <span class="choice-content">
+                            <span class="choice-label">B.</span>
+                            <span class="choice-text">차분하게 한 명씩 말하는 게 좋다.</span>
+                        </span>
+                    </label>
+                </div>
+            </div>
+            <hr class="divider">
+
+            <div class="question-card" data-question="2">
+                <h4 class="q-title">문제 생기면?</h4>
+                <div class="choices-container">
+                    <label class="choice-btn pink">
+                        <input type="radio" name="q2" value="E">
+                        <span class="choice-content">
+                            <span class="choice-label">A.</span>
+                            <span class="choice-text">바로 팀원한테 “얘들아 잠깐만!” 외친다.</span>
+                        </span>
+                    </label>
+                    <label class="choice-btn teal">
+                        <input type="radio" name="q2" value="I">
+                        <span class="choice-content">
+                            <span class="choice-label">B.</span>
+                            <span class="choice-text">해결 가능하면 혼자 먼저 알아본다.</span>
+                        </span>
+                    </label>
+                </div>
+            </div>
+            <hr class="divider">
+
+            <div class="question-card" data-question="3">
+                <h4 class="q-title">새로운 팀원을 만났을 때</h4>
+                <div class="choices-container">
+                    <label class="choice-btn pink">
+                        <input type="radio" name="q3" value="E">
+                        <span class="choice-content">
+                            <span class="choice-label">A.</span>
+                            <span class="choice-text">금방 친해지고 대화 텐션 빠르게 올라간다.</span>
+                        </span>
+                    </label>
+                    <label class="choice-btn teal">
+                        <input type="radio" name="q3" value="I">
+                        <span class="choice-content">
+                            <span class="choice-label">B.</span>
+                            <span class="choice-text">시간 지나면 자연스럽게 친해지는 편.</span>
+                        </span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <!-- ⭐ Page 1 끝 -->
+
+
+        <!-- ⭐ Page 2: [P vs S] – 문제 접근 방식 (4문항) -->
+        <div class="quiz-page" data-page-index="1" style="display: none;">
+            <h3 class="page-title">챕터 2. 접근 방식 퀘스트 (P vs S)</h3>
+
+            <div class="question-card" data-question="4">
+                <h4 class="q-title">아이디어 회의에서 나는…</h4>
+                <div class="choices-container">
+                    <label class="choice-btn pink">
+                        <input type="radio" name="q4" value="P">
+                        <span class="choice-content">
+                            <span class="choice-label">A.</span>
+                            <span class="choice-text">생각나는 대로 막 던지고 그중에 고르는 스타일.</span>
+                        </span>
+                    </label>
+                    <label class="choice-btn teal">
+                        <input type="radio" name="q4" value="S">
+                        <span class="choice-content">
+                            <span class="choice-label">B.</span>
+                            <span class="choice-text">틀과 방향 먼저 정하고 아이디어를 낸다.</span>
+                        </span>
+                    </label>
+                </div>
+            </div>
+            <hr class="divider">
+
+            <div class="question-card" data-question="5">
+                <h4 class="q-title">과제 요구사항을 보면</h4>
+                <div class="choices-container">
+                    <label class="choice-btn pink">
+                        <input type="radio" name="q5" value="P">
+                        <span class="choice-content">
+                            <span class="choice-label">A.</span>
+                            <span class="choice-text">“일단 해보고 수정하지 뭐!”</span>
+                        </span>
+                    </label>
+                    <label class="choice-btn teal">
+                        <input type="radio" name="q5" value="S">
+                        <span class="choice-content">
+                            <span class="choice-label">B.</span>
+                            <span class="choice-text">“요구사항 분석부터 철저히!”</span>
+                        </span>
+                    </label>
+                </div>
+            </div>
+            <hr class="divider">
+
+            <div class="question-card" data-question="6">
+                <h4 class="q-title">새로운 기능 만들 때</h4>
+                <div class="choices-container">
+                    <label class="choice-btn pink">
+                        <input type="radio" name="q6" value="P">
+                        <span class="choice-content">
+                            <span class="choice-label">A.</span>
+                            <span class="choice-text">실험해보며 배우는 게 재미있다.</span>
+                        </span>
+                    </label>
+                    <label class="choice-btn teal">
+                        <input type="radio" name="q6" value="S">
+                        <span class="choice-content">
+                            <span class="choice-label">B.</span>
+                            <span class="choice-text">레퍼런스, 문서 먼저 확인하고 들어간다.</span>
+                        </span>
+                    </label>
+                </div>
+            </div>
+            <hr class="divider">
+
+            <div class="question-card" data-question="7">
+                <h4 class="q-title">갑자기 변경 요청이 오면</h4>
+                <div class="choices-container">
+                    <label class="choice-btn pink">
+                        <input type="radio" name="q7" value="P">
+                        <span class="choice-content">
+                            <span class="choice-label">A.</span>
+                            <span class="choice-text">“오? 재밌네. 한번 가보자!”</span>
+                        </span>
+                    </label>
+                    <label class="choice-btn teal">
+                        <input type="radio" name="q7" value="S">
+                        <span class="choice-content">
+                            <span class="choice-label">B.</span>
+                            <span class="choice-text">“흐름 깨지는데… 일정부터 다시 보자.”</span>
+                        </span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <!-- ⭐ Page 2 끝 -->
+
+
+        <!-- ⭐ Page 3: [R vs F] – 작업 리듬 (4문항) -->
+        <div class="quiz-page" data-page-index="2" style="display: none;">
+            <h3 class="page-title">챕터 3. 작업 리듬 퀘스트 (R vs F)</h3>
+
+            <div class="question-card" data-question="8">
+                <h4 class="q-title">과제 제출 하루 전:</h4>
+                <div class="choices-container">
+                    <label class="choice-btn pink">
+                        <input type="radio" name="q8" value="R">
+                        <span class="choice-content">
+                            <span class="choice-label">A.</span>
+                            <span class="choice-text">이때 집중력이 미쳤다.</span>
+                        </span>
+                    </label>
+                    <label class="choice-btn teal">
+                        <input type="radio" name="q8" value="F">
+                        <span class="choice-content">
+                            <span class="choice-label">B.</span>
+                            <span class="choice-text">이미 대부분 끝. 남은 건 마무리만.</span>
+                        </span>
+                    </label>
+                </div>
+            </div>
+            <hr class="divider">
+
+            <div class="question-card" data-question="9">
+                <h4 class="q-title">작업 시간 확보는</h4>
+                <div class="choices-container">
+                    <label class="choice-btn pink">
+                        <input type="radio" name="q9" value="R">
+                        <span class="choice-content">
+                            <span class="choice-label">A.</span>
+                            <span class="choice-text">몰아서 폭주하는 타입.</span>
+                        </span>
+                    </label>
+                    <label class="choice-btn teal">
+                        <input type="radio" name="q9" value="F">
+                        <span class="choice-content">
+                            <span class="choice-label">B.</span>
+                            <span class="choice-text">조금씩 나눠서 꾸준히 한다.</span>
+                        </span>
+                    </label>
+                </div>
+            </div>
+            <hr class="divider">
+
+            <div class="question-card" data-question="10">
+                <h4 class="q-title">갑자기 일정이 당겨졌을 때</h4>
+                <div class="choices-container">
+                    <label class="choice-btn pink">
+                        <input type="radio" name="q10" value="R">
+                        <span class="choice-content">
+                            <span class="choice-label">A.</span>
+                            <span class="choice-text">긴장감이 오히려 나를 살아있게 한다.</span>
+                        </span>
+                    </label>
+                    <label class="choice-btn teal">
+                        <input type="radio" name="q10" value="F">
+                        <span class="choice-content">
+                            <span class="choice-label">B.</span>
+                            <span class="choice-text">당황은 하지만 그래도 일정 관리한다.</span>
+                        </span>
+                    </label>
+                </div>
+            </div>
+            <hr class="divider">
+
+            <div class="question-card" data-question="11">
+                <h4 class="q-title">팀플을 할 때 내 작업 패턴</h4>
+                <div class="choices-container">
+                    <label class="choice-btn pink">
+                        <input type="radio" name="q11" value="R">
+                        <span class="choice-content">
+                            <span class="choice-label">A.</span>
+                            <span class="choice-text">초반 여유 → 후반 폭주.</span>
+                        </span>
+                    </label>
+                    <label class="choice-btn teal">
+                        <input type="radio" name="q11" value="F">
+                        <span class="choice-content">
+                            <span class="choice-label">B.</span>
+                            <span class="choice-text">초반부터 일정하게 페이스 유지.</span>
+                        </span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <!-- ⭐ Page 3 끝 -->
+
+
+        <!-- ⭐ Page 4: [C vs A] – 협업 태도 (4문항) -->
+        <div class="quiz-page" data-page-index="3" style="display: none;">
+            <h3 class="page-title">챕터 4. 협업 태도 퀘스트 (C vs A)</h3>
+
+            <div class="question-card" data-question="12">
+                <h4 class="q-title">회의할 때 나는…</h4>
+                <div class="choices-container">
+                    <label class="choice-btn pink">
+                        <input type="radio" name="q12" value="C">
+                        <span class="choice-content">
+                            <span class="choice-label">A.</span>
+                            <span class="choice-text">방향 잡고 흐름 관리하는 편.</span>
+                        </span>
+                    </label>
+                    <label class="choice-btn teal">
+                        <input type="radio" name="q12" value="A">
+                        <span class="choice-content">
+                            <span class="choice-label">B.</span>
+                            <span class="choice-text">필요한 타이밍에 의견 보태는 편.</span>
+                        </span>
+                    </label>
+                </div>
+            </div>
+            <hr class="divider">
+
+            <div class="question-card" data-question="13">
+                <h4 class="q-title">작업 분배에서의 나</h4>
+                <div class="choices-container">
+                    <label class="choice-btn pink">
+                        <input type="radio" name="q13" value="C">
+                        <span class="choice-content">
+                            <span class="choice-label">A.</span>
+                            <span class="choice-text">주도해서 역할을 정리하고자 한다.</span>
+                        </span>
+                    </label>
+                    <label class="choice-btn teal">
+                        <input type="radio" name="q13" value="A">
+                        <span class="choice-content">
+                            <span class="choice-label">B.</span>
+                            <span class="choice-text">맡겨지면 잘 해내는 스타일.</span>
+                        </span>
+                    </label>
+                </div>
+            </div>
+            <hr class="divider">
+
+            <div class="question-card" data-question="14">
+                <h4 class="q-title">팀원 의견 충돌이 생기면</h4>
+                <div class="choices-container">
+                    <label class="choice-btn pink">
+                        <input type="radio" name="q14" value="C">
+                        <span class="choice-content">
+                            <span class="choice-label">A.</span>
+                            <span class="choice-text">“정리해보자!” 하며 중재 시도.</span>
+                        </span>
+                    </label>
+                    <label class="choice-btn teal">
+                        <input type="radio" name="q14" value="A">
+                        <span class="choice-content">
+                            <span class="choice-label">B.</span>
+                            <span class="choice-text">흐름 보며 적당히 조율·적응.</span>
+                        </span>
+                    </label>
+                </div>
+            </div>
+            <hr class="divider">
+
+            <div class="question-card" data-question="15">
+                <h4 class="q-title">새로운 팀 규칙 만들기</h4>
+                <div class="choices-container">
+                    <label class="choice-btn pink">
+                        <input type="radio" name="q15" value="C">
+                        <span class="choice-content">
+                            <span class="choice-label">A.</span>
+                            <span class="choice-text">효율적이면 바로 제안한다.</span>
+                        </span>
+                    </label>
+                    <label class="choice-btn teal">
+                        <input type="radio" name="q15" value="A">
+                        <span class="choice-content">
+                            <span class="choice-label">B.</span>
+                            <span class="choice-text">기존 흐름을 존중하고 따라간다.</span>
+                        </span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <!-- ⭐ Page 4 끝 -->
+
+        <div class="bottom-nav">
+            <button class="btn-next" disabled>다음 페이지 →</button>
+        </div>
+
+    </section>
+</main>
+
+
+</body>
+</html>
