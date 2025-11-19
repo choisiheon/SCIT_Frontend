@@ -215,7 +215,7 @@ body{
     width: 720px;        /* PNG 실제 크기 */
     height: 180px;       /* PNG 실제 크기 */
 
-    background-image: url('/assets/img/ui/frame_charlist.png');
+    background-image: url('../assets/img/ui/frame_charlist.png');
     background-size: 100% 100%;
     background-repeat: no-repeat;
     background-position: center;

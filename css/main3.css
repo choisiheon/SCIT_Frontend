@@ -23,6 +23,8 @@
     width: 600px;
     height: 520px;
     position: relative;
+
+    transform: translateX(80px); /* ← 이미지만 이동 */
 }
 
 .hero-img{
