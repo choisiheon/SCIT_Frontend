@@ -18,4 +18,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 이 파일은 현재 비어있지만, 추후 다른 동적인 기능이 필요할 때 사용하시면 됩니다.
 });
+//     251120
+
 // main1용 끝

@@ -189,4 +189,7 @@ document.getElementById("visualBg").style.backgroundImage =
 ------------------------------------------*/
 selectCharacter(characters[0].id);
 
+
+//     251120
+
 }
