@@ -1,3 +1,9 @@
+/* ===========================================
+
+                main 3.css
+
+============================================*/
+
 .hero-section{
     background-image: url("../assets/img/hero/hero_bg.png");
     background-size: cover;
@@ -21,7 +27,7 @@
 /* 왼쪽 캐릭터 */
 .hero-images{
     width: 600px;
-    height: 520px;
+    height: 570px;
     position: relative;
 
     transform: translateX(80px); /* ← 이미지만 이동 */
@@ -31,7 +37,7 @@
     position: absolute;
     bottom: 0;
     left: 0;
-    height: 500px;
+    height: 650px;
     transition: opacity 0.3s;
 }
 
