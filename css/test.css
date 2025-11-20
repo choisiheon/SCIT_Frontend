@@ -17,7 +17,6 @@
   1. 기본 설정 및 배경 (Background & Base)
 ==========================+++=======*/
 body {
-    font-family: 'Arial', sans-serif; /* 필요시 폰트 변경 (예: 'Noto Sans KR') */
     background-color: #1c1c1c; /* 전체 어두운 배경 */
     color: #e6e6e6; /* 기본 글자색 (밝은 회색) */
     margin: 0;
