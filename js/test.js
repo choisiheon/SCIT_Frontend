@@ -107,7 +107,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // 결과 페이지로 이동
         // 주의: results 폴더 안에 해당 HTML 파일(예: EPRA.html)이 있어야 합니다.
-        window.location.href = `/characterInfo.html?code=${resultType}.html`;
+        window.location.href = `characterInfo.html?code=${resultType}`;
     }
 
     // ---------------------------------------------------------
