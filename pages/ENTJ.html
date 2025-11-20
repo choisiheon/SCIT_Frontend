@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Paladin Page</title>
+
+    <style>
+        /*공통 배경 / 폰트*/
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            background: radial-gradient(circle at top, #3a2414 0%, #120806 60%, #050203 100%);
+        }
+
+        @font-face {
+            font-family: 'customFont3';
+            src: url(../font/HeirofLightRegular.ttf);
+        }
+
+        body {
+            font-family: 'customFont3';
+            color: #2b1a0d;
+        }
+
+        section {
+            width: 100%;
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 32px 16px 60px;
+            box-sizing: border-box;
+            background: url('../PaperOverlay.jpg');
+            background-size: cover;
+            background-color: #f3e0c4;
+            border-radius: 18px;
+            box-shadow: 0 0 28px rgba(0,0,0,0.5);
+        }
+
+        /*9-조각 프레임용 공통 값*/
+        :root {
+            --corner-size: 60px;  /* 모서리 크기 */
+            --edge-thick: 60px;   /* 선 두께 */
+        }
+
+        /* 전체 카드 박스 */
+        .frame-box {
+            position: relative;
+            max-width: 960px;
+            margin: 36px auto;
+        }
+
+        /* 안쪽 종이 카드 */
+        .frame-inner {
+            position: relative;
+            margin: 55px;          /* 카드 안쪽 여백*/
+            padding: 24px 40px;
+            background: transparent;
+            box-shadow: none;
+            border-radius: 0;
+            z-index: 1;
+            box-sizing: border-box;
+        }
+
+
+        /* 모서리 4개 */
+        .frame-corner {
+            position: absolute;
+            width: var(--corner-size);
+            height: var(--corner-size);
+            background-size: cover;
+            background-repeat: no-repeat;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .frame-corner.tl {
+            top: 0;
+            left: 0;
+            background-image: url('../frame_tl.png');
+        }
+        .frame-corner.tr {
+            top: 0;
+            right: 0;
+            background-image: url('../frame_tr.png');
+        }
+        .frame-corner.bl {
+            bottom: 0;
+            left: 0;
+            background-image: url('../frame_bl.png');
+        }
+        .frame-corner.br {
+            bottom: 0;
+            right: 0;
+            background-image: url('../frame_br.png');
+        }
+
+        /* 선 4개 (반복) */
+        .frame-edge {
+            position: absolute;
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        /* 위쪽 선 */
+        .frame-edge.top {
+            top: 0;
+            left: var(--corner-size);
+            right: var(--corner-size);
+            height: var(--edge-thick);
+            background-image: url('../frame_t.png');
+            background-size: auto var(--edge-thick);
+            background-repeat: repeat-x;
+        }
+
+        /* 아래쪽 선 */
+        .frame-edge.bottom {
+            bottom: 0;
+            left: var(--corner-size);
+            right: var(--corner-size);
+            height: var(--edge-thick);
+            background-image: url('../frame_b.png');
+            background-size: auto var(--edge-thick);
+            background-repeat: repeat-x;
+        }
+
+        /* 왼쪽 선 */
+        .frame-edge.left {
+            top: var(--corner-size);
+            bottom: var(--corner-size);
+            left: 0;
+            width: var(--edge-thick);
+            background-image: url('../frame_l.png');
+            background-size: var(--edge-thick) auto;
+            background-repeat: repeat-y;
+        }
+
+        /* 오른쪽 선 */
+        .frame-edge.right {
+            top: var(--corner-size);
+            bottom: var(--corner-size);
+            right: 0;
+            width: var(--edge-thick);
+            background-image: url('../frame_r.png');
+            background-size: var(--edge-thick) auto;
+            background-repeat: repeat-y;
+        }
+
+        /*텍스트 스타일*/
+        h1 {
+            font-size: 40px;
+            margin: 0 0 10px;
+            color: #2b1a0d;
+            text-align: left;
+        }
+
+        h2 {
+            font-size: 32px;
+            margin: 0 0 12px;
+            color: #2b1a0d;
+            text-align: left;
+        }
+
+        h3 {
+            font-size: 24px;
+            margin: 20px 0 8px;
+            font-weight: bold;
+            color: #2b1a0d;
+        }
+
+        h4 {
+            font-size: 18px;
+            margin: 8px 0;
+            font-weight: bold;
+            color: #4a3420;
+        }
+
+        h5 {
+            font-size: 16px;
+            margin: 4px 0;
+            color: #3b2615;
+        }
+
+        p {
+            font-size: 15px;
+            margin: 4px 0;
+            line-height: 1.6;
+            color: #3b2615;
+        }
+
+        .divider-line {
+            margin: 12px 0 16px;
+            height: 2px;
+            background: rgba(91, 69, 41, 0.4);
+        }
+
+        /* 상단 ENFJ + 캐릭터 이미지 배치 */
+        .hero-table {
+            width: 100%;
+            border-spacing: 0;
+        }
+
+        .hero-table td {
+            vertical-align: middle;
+        }
+
+        .hero-table img {
+            max-width: 260px;
+            display: block;
+            margin-left: auto;
+        }
+
+        header, footer {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <!-- 필요하면 상단 로고/메뉴 나중에 추가 -->
+</header>
+
+<section>
+
+    <!-- 1. 타입/캐릭터 소개 프레임 -->
+    <div class="frame-box">
+        <div class="frame-corner tl"></div>
+        <div class="frame-corner tr"></div>
+        <div class="frame-corner bl"></div>
+        <div class="frame-corner br"></div>
+        <div class="frame-edge top"></div>
+        <div class="frame-edge bottom"></div>
+        <div class="frame-edge left"></div>
+        <div class="frame-edge right"></div>
+
+        <div class="frame-inner">
+            <table class="hero-table">
+                <tr>
+                    <td>
+                        <h1>ENFJ</h1>
+                        <h2>성기사 (Paladin)</h2>
+                        <div class="divider-line"></div>
+                        <p>모두를 감싸 안는 빛의 수호자.</p>
+                        <p>#리더십 #추진력 #결과중심 #끈기</p>
+                    </td>
+                    <td rowspan="2">
+                        <img src="../char_removebg/Paladin_bg-removebg-preview.png" alt="Paladin">
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <!-- 2. 팀 프로젝트에서 당신은? -->
+    <div class="frame-box">
+        <div class="frame-corner tl"></div>
+        <div class="frame-corner tr"></div>
+        <div class="frame-corner bl"></div>
+        <div class="frame-corner br"></div>
+        <div class="frame-edge top"></div>
+        <div class="frame-edge bottom"></div>
+        <div class="frame-edge left"></div>
+        <div class="frame-edge right"></div>
+
+        <div class="frame-inner">
+            <h3>팀 프로젝트에서 당신은?</h3>
+            <div class="divider-line"></div>
+            <p>당신은 팀을 하나로 모아주는 안정적인 리더이자, 모두를 감싸 안는 빛의 수호자입니다.</p>
+            <p>타고난 활발한 소통 능력과 긍정적인 분위기 조성 능력 덕분에 당신이 있는 곳은 항상 생기로 가득합니다.</p>
+            <p>마치 전장에서 아군에게 용기를 불어넣는 성기사처럼,</p>
+            <p>당신은 주변 사람들의 사기를 높이고 힘든 상황에서도 포기하지 않도록 동기부여하는 능력이 탁월합니다.</p>
+            <br>
+            <p>#동기부여 #성장지원 #우유부단</p>
+            <br>
+        </div>
+    </div>
+
+    <!-- 3. 장점/단점 프레임 -->
+    <div class="frame-box">
+        <div class="frame-corner tl"></div>
+        <div class="frame-corner tr"></div>
+        <div class="frame-corner bl"></div>
+        <div class="frame-corner br"></div>
+        <div class="frame-edge top"></div>
+        <div class="frame-edge bottom"></div>
+        <div class="frame-edge left"></div>
+        <div class="frame-edge right"></div>
+
+        <div class="frame-inner">
+            <h3>장점</h3>
+            <div class="divider-line"></div>
+            <p>당신의 가장 큰 강점은 뛰어난 대외 활동 능력과 성장 지원에 있습니다.</p>
+            <p>팀 내부에서는 긍정적인 에너지를 불어넣어 협력적인 분위기를 조성하며,</p>
+            <p>팀원 개개인의 잠재력을 발견하고 키워주는 데 집중합니다.</p>
+            <p>또한, 외부 관계를 처리하고 팀을 대변하는 발표나 협상에 매우 능숙하여</p>
+            <p>팀의 이미지를 긍정적으로 만들고 든든하게 지켜줍니다.</p>
+            <p>팀의 안정감은 바로 당신에게서 시작됩니다.</p>
+            <br>
+
+            <h3>단점</h3>
+            <div class="divider-line"></div>
+            <p>모두를 만족시키려는 선량한 마음이 때로는 약점으로 작용할 수 있습니다.</p>
+            <p>타인의 의견을 너무나 중요하게 생각하는 나머지, 결정을 내릴 때 우유부단한 모습을 보이거나 결정을 미루는 경향이 있습니다.</p>
+            <p>특히, 팀원들의 상반된 의견 사이에서 지나치게 휘둘릴 위험이 있습니다.</p>
+            <p>진정한 리더십은 모두를 만족시키는 것이 아니라, 때로는 최선의 선택을 위해 단호하게 나아가는 용기임을 기억해야 합니다.</p>
+            <p>당신의 결정력을 강화하는 것이 성기사로서의 성숙함을 완성하는 열쇠입니다.</p>
+            <br>
+        </div>
+    </div>
+
+    <!-- 4. 궁합 조언 프레임 -->
+    <div class="frame-box">
+        <div class="frame-corner tl"></div>
+        <div class="frame-corner tr"></div>
+        <div class="frame-corner bl"></div>
+        <div class="frame-corner br"></div>
+        <div class="frame-edge top"></div>
+        <div class="frame-edge bottom"></div>
+        <div class="frame-edge left"></div>
+        <div class="frame-edge right"></div>
+
+        <div class="frame-inner">
+            <h3>궁합 조언</h3>
+            <div class="divider-line"></div>
+
+            <h4>Best Type</h4>
+            <h5>사무라이 (Samurai)</h5>
+            <p>성기사의 분위기 조성과 조율 능력이 사무라이의 냉정한 기술력과 만나면 팀이 안정적으로 굴러갑니다.</p>
+            <p>사무라이의 빠른 해결력은 성기사의 우유부단함을 채워주고, 성기사의 사회성은 사무라이의 고립을 막아줍니다.</p>
+            <br>
+
+            <h4>Good Type</h4>
+            <h5>닌자 (Ninja) &amp; 흑마법사 (Black Mage)</h5>
+            <p>닌자는 창의력이 뛰어나지만, 그 예측불가능한 매력이 성기사를 당황스럽게 합니다.</p>
+            <p>흑마법사와는 일을 해결하는 스타일은 맞지만 감정적인 교류 부족으로 거리감이 생기기 쉽습니다.</p>
+            <br>
+
+            <h4>Challenge Type</h4>
+            <h5>기사 (Knight)</h5>
+            <p>성기사의 유연한 조율 방식과 기사의 원칙주의는 종종 충돌합니다.</p>
+            <p>성기사의 사람 중심적인 태도를 기사는 비효율적으로 느끼고, 성기사는 기사의 고집에 답답함을 느낍니다.</p>
+            <br>
+        </div>
+    </div>
+
+</section>
+
+<footer>
+    <!-- 제작진 소개 등 나중에 추가 -->
+</footer>
+
+</body>
+</html>
