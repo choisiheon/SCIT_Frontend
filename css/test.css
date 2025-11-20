@@ -6,6 +6,13 @@
     box-sizing: border-box;
 }
 
+@font-face {
+    font-family: 'MyGameFont'; /* 내가 정하는 이름 */
+    src: url('../assets/fonts/MyFont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 /*========================+++=========
   1. 기본 설정 및 배경 (Background & Base)
 ==========================+++=======*/
