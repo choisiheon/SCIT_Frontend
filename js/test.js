@@ -102,8 +102,8 @@ document.addEventListener('DOMContentLoaded', () => {
             (C >= 3 ? 'C' : 'A');
 
         console.log("최종 결과:", resultType);
-        // 나중에 없앨거
-        alert(`축하합니다! 당신은 ${resultType} 유형입니다!!`);
+//        // 나중에 없앨거
+//        alert(`축하합니다! 당신은 ${resultType} 유형입니다!!`);
 
         // 결과 페이지로 이동
         // 주의: results 폴더 안에 해당 HTML 파일(예: EPRA.html)이 있어야 합니다.
