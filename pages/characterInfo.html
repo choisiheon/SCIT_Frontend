@@ -147,6 +147,30 @@
             padding: 5px 0;
             color: #ccc;
         }
+
+        /* '지금 시작하기' 버튼 스타일 */
+    .btn-start{
+        background: #ffd37f !important;
+        color: #000;
+        border: none;
+        padding: 15px 40px;
+        border-radius: 4px;
+        font-size: 18px;
+        font-weight: 700;
+        cursor: pointer;
+        transition: background .2s;
+         margin: 100px auto 20px auto;
+    }
+
+    .btn-start:hover{
+        background: #ffd37f;
+    }
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* 수평 가운데 */
+    }
     </style>
 </head>
 <body>
@@ -206,6 +230,7 @@
         <div class="text-line" id="neutral-reason"></div>
     </div>
 
+    <button class="btn-start" onclick="location.href='../test.html'">돌아가기</button>
 </div>
 
 <script>
@@ -556,6 +581,8 @@
 
     // 페이지가 로드되면 데이터 로딩 함수 실행
     document.addEventListener('DOMContentLoaded', loadRoleData);
+
+
 </script>
 
 </body>
