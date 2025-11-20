@@ -1,10 +1,134 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>심리테스트</title>
+    <script src="./js/footer.js"></script>
+    <script src="./js/header.js"></script>
+    <script src="./js/main1.js"></script>
+    <link rel="stylesheet" href="./css/main.css">
 </head>
+
 <body>
 
+<section id="main1" class="visual_wrap">
+
+    <div class="video_wrap">
+        <video id="backgroundVideo" muted loop autoplay playsinline>
+            <source src="assets/img/main1Intro.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <div class="floatingBanner">
+        <div class="txt_main_visual">
+
+            <h1 class="title_wrap main_title"> [SYSTEM MESSAGE] 새로운 유저 감지. <br> 당신의 협업 타입을 스캔합니다…</h1>
+
+            <div class="btn_wrap">
+                <div class="button-container">
+                    <input id='go_test' type='button' onclick='pgTest()' value='스캔 승인 [Y]' />
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+<!-- main1 끝 -->
+
+<section id="main2" class="blz-highlights-carousel">
+
+    <div class="carousel-header">
+        <h2 class="section-title">동료 영웅들과 함께 싸우세요</h2>
+        <p class="section-description">최고의 팀원들과 프로젝트를 '캐리'하세요<br>
+            성향을 분석하고, 팀을 이루어 4월 30일의 마감일까지 완벽하게 생존하세요.</p>
+    </div>
+
+    <div class="carousel-items">
+
+        <div class="carousel-item">
+            <div class="item-image">
+                <img src="./assets/img/omg.png" alt="트롤 방지 및 멘탈 보호">
+            </div>
+            <div class="item-text">
+                <h3>트롤 방지 및 멘탈 보호</h3>
+                <p>팀원의 멘탈을 보호하고 트롤을 방지하는 협업 전략을 세워보세요.</p>
+            </div>
+        </div>
+
+        <div class="carousel-item">
+            <div class="item-image">
+                <img src="./assets/img/new.png" alt="새로운 유형의 발견">
+            </div>
+            <div class="item-text">
+                <h3>새로운 유형의 발견</h3>
+                <p>MBTI를 넘어선 새로운 협업 유형을 발견하고 팀의 시너지를 높이세요.</p>
+            </div>
+        </div>
+
+        <div class="carousel-item">
+            <div class="item-image">
+                <img src="./assets/img/project.png" alt="평단의 극찬을 받을 협업">
+            </div>
+            <div class="item-text">
+                <h3>평단의 극찬을 받을 협업</h3>
+                <p>완벽한 데이터 분석을 통해 모두가 인정하는 성공적인 프로젝트를 만듭니다.</p>
+            </div>
+        </div>
+
+        <div class="carousel-item">
+            <div class="item-image">
+                <img src="./assets/img/matching.png" alt="데이터 기반 궁합 매칭">
+            </div>
+            <div class="item-text">
+                <h3>데이터 기반 궁합 매칭</h3>
+                <p>나와 가장 잘 맞는, 또는 가장 피해야 할 팀원 유형을 데이터로 확인하세요.</p>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- main2 끝-->
+
+<!--<div id="main2">-->
+<!--    <h1>동료 영웅들과 함께 싸우세요</h1>-->
+<!--    <p>최고의 팀원들과 프로젝트를 '캐리'하세요-->
+<!--        성향을 분석하고, 팀을 이루어 4월 30일의 마감일까지 완벽하게 생존하세요.</p>-->
+<!--    <table>-->
+<!--        <tr>-->
+<!--            <th>사진 1</th>-->
+<!--            <th>사진 1</th>-->
+<!--            <th>사진 1</th>-->
+<!--            <th>사진 1</th>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--            <td>트롤 방지 및 멘탈 보호</td>-->
+<!--            <td>새로운 유형의 발견</td>-->
+<!--            <td>평단의 극찬을 받을 협업</td>-->
+<!--            <td>데이터 기반 궁합 매칭</td>-->
+<!--        </tr>-->
+<!--    </table>-->
+<!--</div>-->
+
+<div id="main3">
+    <table>
+        <tr>
+            <th>영웅사진</th>
+            <th> | 설명</th>
+        </tr>
+    </table>
+</div>
+<div id="main4">
+    <div>
+        <p>전체캐릭터 나열</p>
+        <div class="button-container">
+            <input id='char1' type='button' onclick='pgChar1()' value='캐릭터 상세보기' />
+        </div>
+    </div>
+</div>
 </body>
+
 </html>

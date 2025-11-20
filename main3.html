@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>캐릭터 선택</title>
+    <link rel="stylesheet" href="./css/main3.css" />
+</head>
+<body>
+<section class="hero-section">
+    <div class="hero-inner">
+
+        <!-- 왼쪽: 캐릭터 그룹 이미지 -->
+        <div class="hero-images">
+            <img src="assets/img/hero/attack.png" class="hero-img" id="heroCharacter">
+        </div>
+
+        <!-- 오른쪽: 텍스트 영역 -->
+        <div class="hero-content">
+            <h2 class="hero-title" id="roleTitle">공격</h2>
+
+            <div class="hero-icons">
+                <img src="assets/img/icons/attack.png" class="icon-btn" onclick="changeRole('attack')">
+                <img src="assets/img/icons/shield.png" class="icon-btn" onclick="changeRole('tank')">
+                <img src="assets/img/icons/healthcare.png" class="icon-btn" onclick="changeRole('healer')">
+            </div>
+
+            <p class="hero-desc" id="roleDescription">
+                공격 영웅은 빠르고 강력한 기술로 적을 제압하는 핵심 역할입니다.
+            </p>
+        </div>
+    </div>
+</section>
+<!--//     251120-->
+<script src="./js/main3.js"></script>
+</body>

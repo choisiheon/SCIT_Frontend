@@ -1,0 +1,280 @@
+/* ===========================================
+<!--//     251120-->
+
+                main4.css
+
+============================================*/
+:root{
+  --accent:#e3a936; /* '지금 시작하기' 버튼 및 강조 색상 */
+  --highlight-gold:#c8a36c; /* 활성화된 초상화 테두리 색상 */
+  --muted:#9aa0a6;
+  --bg:#0f1113;
+  --card:#0b0d0f;
+}
+
+body{
+  margin:0;
+  background: #000000;
+  color:white;
+  font-family:"Noto Sans KR", sans-serif;
+  overflow-x: hidden;
+}
+
+/* 전체 선택 영역: 뷰포트 전체를 차지하며 모든 요소를 감쌈 */
+#CHAR_SELECTOR{
+  position: relative;
+  width: 100vw;
+  min-height: 100vh;
+  padding: 0;
+  overflow: hidden;
+}
+
+/* 배경 및 큰 포트레이트 컨테이너 (Full Screen) */
+/* 기존의 #WARRIOR, .visual-card를 합쳐서 전체 화면 배경을 담당 */
+.visual-card{
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background:#060708;
+  overflow:hidden;
+}
+
+/* 배경 이미지 */
+.visual-bg{
+  position:absolute;
+  inset:0;
+  background-size: cover;
+  background-position: center;
+  /* 이미지처럼 배경을 어둡게 하고 톤을 맞춤 */
+  filter:brightness(0.3) contrast(1.2);
+  transform: scale(1.05);
+}
+
+/* 메인 포트레이트 (캐릭터 이미지) */
+.portrait{
+  position:absolute;
+  inset:0;
+  display:flex;
+  align-items:flex-end; /* 캐릭터를 하단에 배치 */
+  justify-content:flex-end; /* 캐릭터를 오른쪽으로 치우치게 배치 */
+  padding-bottom: 0;
+  padding-right: 0;
+}
+.portrait img{
+  max-height: 100vh; /* 화면 높이에 맞춤 */
+  width: auto;
+  object-fit: contain;
+  /* 이미지처럼 우측 하단에 크게 배치 */
+  transform: translateX(10%) scale(1.1);
+  animation: none; /* 기존 float 애니메이션 제거 */
+}
+
+/* 정보 오버레이 컨테이너 */
+.info-overlay{
+    position: absolute;
+    inset: 0;
+    z-index: 10;
+    /* 하단 리스트 클릭을 위해 포인터 이벤트 기본 제거 */
+    pointer-events: none;
+}
+
+/* 좌측 상단 정보 (무사, 설명, 버튼) */
+.warrior-info{
+  background: none; /* 배경 제거 */
+  padding: 100px 5% 0 5%;
+  max-width: 600px;
+  position: relative;
+  /* 정보 영역 내 요소는 클릭 가능하도록 복구 */
+  pointer-events: auto;
+}
+
+.title{
+  font-size: 56px; /* 크게 */
+  margin:0 0 10px;
+  font-weight: bold;
+  letter-spacing: -2px;
+}
+.description{
+  font-size: 18px;
+  color: #c9c9c9;
+  line-height:1.7;
+  margin-bottom:30px;
+}
+
+/* '자세히 알아보기' 링크 스타일 */
+.btn-detail{
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    margin-bottom: 40px;
+    cursor: pointer;
+    transition: color .2s;
+}
+.btn-detail .arrow {
+    font-size: 24px;
+    margin-left: 10px;
+    opacity: 0.8;
+}
+
+/* '지금 시작하기' 버튼 스타일 */
+.btn-start{
+    background: var(--accent);
+    color: #000;
+    border: none;
+    padding: 15px 40px;
+    border-radius: 4px;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background .2s;
+}
+.btn-start:hover{
+    background: #ffd37f;
+}
+
+/* 기존의 specs는 숨김 처리 */
+.specs{ display: none; }
+
+/* 개별 초상화 아이템 */
+.char-item{
+  padding: 0;
+  border-radius: 4px;
+  background: #222;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: all .2s;
+  overflow: hidden;
+  position: relative;
+  /* 크기는 grid-template-columns에서 제어하므로 여기서는 유지 */
+  width: 100%;
+  aspect-ratio: 1/1; /* 정사각형 비율 유지 */
+}
+
+/* 중요: char-item 내부의 img 태그가 부모 크기에 맞춰지도록 설정 */
+.char-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(100%);
+    opacity: 0.8;
+    transition: all .2s;
+}
+
+.char-item.active{
+  border-color: var(--highlight-gold);
+  background: var(--card);
+}
+.char-item.active img{
+  filter: grayscale(0%);
+  opacity: 1;
+}
+
+/* 반응형 조정 */
+@media (max-width: 880px){
+  .portrait img{
+    transform: translateX(10%) scale(0.8);
+  }
+  .warrior-info{
+    padding-top: 50px;
+  }
+  .title{
+    font-size: 40px;
+  }
+
+  /* 작은 화면에서는 8개 대신 5개 정도로 조절 */
+  .char-list-grid{
+    grid-template-columns: repeat(auto-fit, minmax(0, 50px)); /* 작은 화면에 맞게 */
+    width: auto;
+    max-width: 95%;
+  }
+}
+
+.portrait {
+  position: absolute;
+  right: 5%;      /* 오른쪽 여백 */
+  bottom: 0;      /* 바닥에서 시작 */
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  height: 100%;
+  pointer-events: none;  /* 클릭 방해 X */
+}
+
+.portrait bg {
+  height: 85vh;     /* 화면의 85% 높이 */
+  width: auto;
+  object-fit: contain;
+}
+/* ------------------------------
+   캐릭터 리스트 프레임 컨테이너
+------------------------------*/
+.char-list-frame {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 720px;        /* PNG 실제 크기 */
+    height: 180px;       /* PNG 실제 크기 */
+
+    background-image: url('../assets/img/ui/frame_charlist.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 25px 20px;  /* 프레임 내부 여백 */
+    z-index: 5;
+}
+
+/* ------------------------------
+   캐릭터 리스트 그리드
+------------------------------*/
+.char-list-grid {
+    display: grid;
+    grid-template-columns: repeat(8, 70px);
+    gap: 8px;
+
+    width: auto;
+    height: auto;
+
+    z-index: 100;
+
+    background: rgba(0,0,0,0.6);
+    border-radius: 6px;
+    padding: 10px 20px;
+}
+
+.char-item.active {
+    border: 2px solid var(--highlight-gold) !important;
+    background: var(--card) !important;
+}
+
+.char-item.active img {
+    filter: grayscale(0%) !important;
+    opacity: 1 !important;
+}
+
+/* ------------------------------
+   백그라운드 컬러 수정
+------------------------------*/
+.visual-bg {
+  position:absolute;
+  inset:0;
+
+  /* 기존 이미지 위에 그라데이션 덮기 */
+  background:
+      linear-gradient(to bottom, #6a4e2a 0%, #000000 90%),
+      url('../assets/img/char/Paladin_bg.png');
+
+  background-size: cover;
+  background-position: center;
+  filter: brightness(0.6);
+}

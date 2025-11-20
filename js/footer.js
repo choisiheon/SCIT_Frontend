@@ -1,75 +1,95 @@
 (function () {
-    function getHTML() {
+    function getFooterCSS() {
         return `
-              <div class="wrap">
-                <div class="top">
-                  <div class="col">
-                    <div class="title">문의하기</div>
-                    <ul class="list">
-                      <li class="item">
-                        <svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 15a2 2 0 0 1-2 2H8l-5 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
-                        <span>LINE</span>
-                      </li>
-                      <li class="item">
-                        <svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53A4.48 4.48 0 0 0 12 7.5v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
-                        <span>@LoveType16</span>
-                      </li>
-                      <li class="item">
-                        <svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="3" width="18" height="18" rx="4"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.5" y2="6.5"></line></svg>
-                        <span>@LoveType16</span>
-                      </li>
-                    </ul>
-                  </div>
-                  <div class="col" style="flex:2;"></div>
-                </div>
-        
-                <div class="sep"></div>
-        
-                <div class="bottom">
-                  <a href="/privacy">개인정보처리방침</a>
-                </div>
-              </div>
-            `;
+            .site-footer {
+                background-color: #000; /* 검정 배경 */
+                color: #fff;            /* 흰색 글씨 */
+                padding: 25px 0 25px 0;        /* 위아래 여백을 줄여서 슬림하게 (헤더의 절반 정도) */
+                font-size: 12px;        /* 글씨 크기도 작게 */
+                text-align: center;
+                font-family: "Pretendard", "Malgun Gothic", sans-serif;
+                border-top: 1px solid rgba(255, 255, 255, 0.1); /* 아주 연한 위쪽 테두리 */
+            }
+
+            .footer-content {
+                max-width: 1200px;
+                margin: 0 auto;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 4px; /* 요소 간 간격 */
+            }
+
+            /* 제작자 텍스트 */
+            .footer-label {
+                font-weight: 400;
+                color: #ccc; /* '제작자 :' 부분은 살짝 연하게 */
+                margin-right: 6px;
+            }
+
+            /* 링크 스타일 */
+            .footer-link {
+                color: #fff;
+                text-decoration: none;
+                cursor: pointer;
+                transition: color 0.2s;
+            }
+
+            .footer-link:hover {
+                color: #057a4a; /* 마우스 올리면 헤더와 같은 초록색으로 포인트 */
+                font-weight: bold;
+                text-decoration: underline;
+            }
+
+            /* 구분선(|) 스타일 */
+            .footer-sep {
+                color: #555; /* 구분선은 눈에 덜 띄게 */
+                margin: 0 6px;
+                font-size: 10px;
+            }
+        `;
     }
 
-    function getCSS() {
+    function getFooterHTML() {
+        // 이동할 페이지 주소를 href="#" 부분에 채워주세요
         return `
-              #site-footer { display:block; background:#eef9f6; color:#2f4b4a; font-family: Arial, Helvetica, sans-serif; }
-              #site-footer .wrap { max-width:1100px; margin:0 auto; padding:48px 24px; }
-              #site-footer .top { display:flex; gap:40px; align-items:flex-start; }
-              #site-footer .col { flex:1; min-width:220px; }
-              #site-footer .title { font-weight:700; font-size:20px; margin-bottom:18px; }
-              #site-footer .list { list-style:none; padding:0; margin:0; }
-              #site-footer .item { display:flex; gap:12px; align-items:center; padding:10px 0; color:#2f4b4a; font-size:16px; }
-              #site-footer .icon { width:20px; height:20px; fill:none; stroke:#2f4b4a; stroke-width:1.6; }
-              #site-footer .sep { height:1px; background:rgba(0,0,0,0.06); margin:28px 0; }
-              #site-footer .bottom { text-align:center; padding-bottom:24px; color:#2f4b4a; }
-              #site-footer a { color:inherit; text-decoration:none; }
-            `;
+            <footer class="site-footer">
+                <div class="footer-content">
+                    <span class="footer-label">제작자 : </span>
+                    
+                    <a href="./pages/characterInfo.html?code=ESFA" class="footer-link">김혜진</a>
+                    <span class="footer-sep">|</span>
+                    
+                    <a href="./pages/characterInfo.html?code=ESRA" class="footer-link">이하늘</a>
+                    <span class="footer-sep">|</span>
+                    
+                    <a href="./pages/characterInfo.html?code=IPCR" class="footer-link">조유정</a>
+                    <span class="footer-sep">|</span>
+                    
+                    <a href="./pages/characterInfo.html?code=ISRA" class="footer-link">최시헌</a>
+                    <span class="footer-sep">|</span>
+                </div>
+            </footer>
+        `;
     }
 
-    function renderFooter(targetSelector = 'body') {
-        if (document.getElementById('site-footer')) return; // 중복 방지
-        const host = document.querySelector(targetSelector) || document.body;
-        const el = document.createElement('div');
-        el.id = 'site-footer';
+    function renderFooter() {
+        if (document.getElementById('site-footer-style')) return;
 
         const style = document.createElement('style');
-        style.textContent = getCSS();
+        style.id = 'site-footer-style';
+        style.textContent = getFooterCSS();
+        document.head.appendChild(style);
 
-        el.appendChild(style);
-        el.insertAdjacentHTML('beforeend', getHTML());
-
-        host.appendChild(el);
+        // body의 맨 끝에 추가
+        document.body.insertAdjacentHTML('beforeend', getFooterHTML());
     }
 
-    // 전역으로 노출 (수동 호출 가능)
-    window.renderFooter = renderFooter;
-
-    // 자동 삽입: DOM 준비되면 body 끝에 추가
+    // 실행
     if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', () => renderFooter());
+        document.addEventListener('DOMContentLoaded', renderFooter);
     } else {
         renderFooter();
     }
+//     251120
 })();

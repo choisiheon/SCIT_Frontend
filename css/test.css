@@ -1,0 +1,322 @@
+/*====================================
+  0. 전역 설정 (Global Fix)
+  - 모든 요소의 크기 계산에 테두리와 패딩을 포함시켜 오버플로우 방지
+====================================*/
+* {
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: 'MyGameFont'; /* 내가 정하는 이름 */
+    font-weight: normal;
+    font-style: normal;
+}
+
+/*========================+++=========
+  1. 기본 설정 및 배경 (Background & Base)
+==========================+++=======*/
+body {
+    font-family: 'Arial', sans-serif; /* 필요시 폰트 변경 (예: 'Noto Sans KR') */
+    background-color: #1c1c1c; /* 전체 어두운 배경 */
+    color: #e6e6e6; /* 기본 글자색 (밝은 회색) */
+    margin: 0;
+    line-height: 1.6;
+    /* 상단에 고정된 진행률 바(약 50~60px)만큼 콘텐츠가 가려지지 않도록 여백 추가 */
+    padding-top: 70px;
+}
+
+/*====================================
+  2. 퀘스트 창 (Main Container)
+====================================*/
+.quiz-main {
+    margin-top: 20px;
+    max-width: 700px; /* 최대 너비 제한 */
+    width: 90%; /* 모바일 대응 */
+    margin-left: auto;
+    margin-right: auto;
+    padding: 30px;
+
+    /* RPG 던전 벽돌/가죽 느낌 */
+    background-color: #333333;
+    border: 5px solid #8B4513; /* 갈색 테두리 */
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.8), inset 0 0 10px #4d4d4d; /* 입체감 */
+}
+
+/* 챕터 제목 스타일 */
+/* .page-title 자체를 이미지 배경으로 사용하여 텍스트가 이미지 안에 들어가게 합니다. */
+.page-title {
+    /* ⭐ 배경 이미지 설정 ⭐ */
+    background-size: contain; /* 이미지가 잘리지 않고 요소 안에 맞게 축소/확대 */
+    background-repeat: no-repeat; /* 이미지 반복 방지 */
+    background-position: center; /* 이미지를 중앙에 배치 */
+
+    /* 텍스트 스타일 (이전과 동일하게 유지) */
+    color: #FFD700; /* 황금색 */
+    text-align: center;
+    font-size: 1.5em;
+    text-shadow: 1px 1px 4px #000; /* 텍스트 그림자를 더 강하게 하여 가독성 높임 */
+    font-weight: bold; /* 폰트 두께 강조 (선택 사항) */
+
+    /* ⭐ 이미지 높이에 맞춰 공간 확보 및 텍스트 중앙 정렬 ⭐ */
+    min-height: 80px; /* 이미지의 대략적인 높이 (필요시 조절) */
+    display: flex; /* flexbox를 사용하여 텍스트를 수직 중앙 정렬 */
+    align-items: center; /* 수직 중앙 정렬 */
+    justify-content: center; /* 수평 중앙 정렬 */
+
+    margin-top: 15px; /* 상단 여백 (필요시 조절) */
+    margin-bottom: 25px;
+}
+
+/* 추가: 모바일 최적화 (필요시 이미지 크기 조절) */
+@media (max-width: 600px) {
+    .page-title {
+        min-height: 60px; /* 모바일에서 이미지 높이 조절 */
+        font-size: 1.2em;
+    }
+}
+
+/* ====================================
+   3. 진행률 바 (슬림 & 한 줄 배치 & 전체 발광)
+   ==================================== */
+.progress-wrap {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px; /* 바의 전체 높이 고정 */
+
+    /* 플렉스박스: 내용물을 한 줄로 배치 */
+    display: flex;
+    align-items: center; /* 수직 중앙 정렬 */
+    justify-content: center; /* 가운데 정렬 */
+    gap: 15px; /* 요소 사이 간격 */
+
+    background-color: rgba(20, 20, 20, 0.95); /* 배경을 조금 더 어둡고 투명하게 */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+
+    margin-bottom: 0;
+    padding: 0 5%; /* 좌우 여백 */
+    border: none;
+}
+
+/* 왼쪽 라벨 (⚔️ 퀘스트) */
+.progress-label {
+    font-weight: bold;
+    color: #FFD700; /* 황금색 */
+    font-size: 0.9em;
+    white-space: nowrap; /* 줄바꿈 방지 */
+    text-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
+}
+
+/* 오른쪽 퍼센트 (0%) */
+.progress-percent {
+    font-weight: bold;
+    color: #fff;
+    font-size: 0.9em;
+    min-width: 40px; /* 숫자가 바뀌어도 위치가 덜 흔들리게 공간 확보 */
+    text-align: right;
+}
+
+/* 게이지 트랙 (배경) - 슬림하게 변경 */
+.progress-track {
+    flex-grow: 1; /* 남은 공간을 모두 차지하여 길게 늘어남 */
+    height: 10px; /* ⭐ 두께를 얇게 조정 (원래 느낌으로 복귀) ⭐ */
+    background-color: #222; /* 아주 어두운 회색 */
+    border: 1px solid #555; /* 얇고 깔끔한 테두리 */
+    border-radius: 5px; /* 둥근 모서리 */
+    overflow: hidden; /* 넘치는 빛 가리기 */
+    box-shadow: inset 0 0 5px #000; /* 안쪽 그림자로 깊이감만 살짝 */
+}
+
+/* 게이지 채움 (발광 에너지) */
+.progress-fill {
+    height: 100%;
+    /* 부드러운 황금빛 그라디언트 */
+    background: linear-gradient(90deg, #d4af37, #FFD700);
+    width: 0; /* 초기값 */
+    transition: width 0.4s ease-out;
+
+    /* ⭐ 발광 효과 수정: 전체적으로 은은하게 빛나도록 통일 ⭐ */
+    /* box-shadow: 수평 수직 흐림 번짐 색상 */
+    box-shadow: 0 0 10px 2px rgba(255, 215, 0, 0.6);
+}
+/*====================================
+  4. 질문 카드 (Question Card)
+====================================*/
+.question-card {
+    background-color: #444444;
+    border-radius: 8px;
+    padding: 15px 20px;
+    margin-bottom: 20px;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+.q-title {
+    font-size: 1.1em;
+    color: #FFFFFF;
+    margin-top: 0;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+/* 구분선 스타일 */
+.divider {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), #555, rgba(0, 0, 0, 0));
+    margin: 25px 0;
+}
+
+/*====================================
+  5. 선택지 (사각형 박스 버튼) 스타일
+====================================*/
+
+.choices-container {
+    display: flex;
+    gap: 15px; /* 박스 사이 간격 */
+    justify-content: center; /* 가운데 정렬 */
+}
+
+.choice-btn {
+    flex: 1; /* 가로 공간 균등 분배 */
+    display: block;
+    min-height: 80px; /* 최소 높이 */
+    cursor: pointer;
+    text-align: left;
+    padding: 15px;
+
+    /* 기본 박스 스타일 */
+    background-color: #4a4a4a;
+    border: 3px solid #777777;
+    border-radius: 5px;
+    transition: all 0.2s;
+    opacity: 0.9;
+}
+
+/* 라디오 버튼 숨김 (필수) */
+.choice-btn input[type="radio"] {
+    display: none;
+}
+
+/* 텍스트 레이아웃 */
+.choice-content {
+    display: flex;
+    flex-direction: column;
+}
+
+/* A/B 라벨 강조 */
+.choice-label {
+    font-weight: bold;
+    font-size: 1.2em;
+    margin-bottom: 5px;
+    color: #FFD700; /* 황금색 */
+}
+
+.choice-text {
+    font-size: 0.9em;
+    line-height: 1.4;
+}
+
+/* --- 선택되었을 때 (Checked) 효과 --- */
+
+.choice-btn input[type="radio"]:checked + .choice-content {
+    opacity: 1;
+}
+
+/* Pink 타입 선택 시 */
+.choice-btn.pink input[type="radio"]:checked + .choice-content {
+    /* 부모(.choice-btn)에 스타일을 적용해야 하므로
+       실제로는 JS 없이 CSS만으로는 부모 선택이 불가능합니다.
+       따라서 트릭으로 .choice-content가 아닌 .choice-btn 자체에
+       :has() 가상 선택자를 쓰거나,
+       여기서는 간단히 박스 전체 색상을 바꾸는 대신
+       테두리와 그림자 효과를 주기 위해 아래와 같이 설정합니다.
+    */
+}
+
+/* ⭐ 수정된 선택 효과 (박스 전체 발광) ⭐ */
+/* :has() 선택자는 최신 브라우저에서 지원됩니다. 안전하게 input:checked 형제 선택자를 활용합니다. */
+.choice-btn:has(input:checked) {
+    transform: scale(1.02); /* 살짝 커짐 */
+    opacity: 1;
+}
+
+.choice-btn.pink:has(input:checked) {
+    border-color: #FF69B4;
+    box-shadow: 0 0 15px #FF69B4, inset 0 0 10px #FF69B4; /* 내부/외부 발광 */
+    background-color: rgba(255, 105, 180, 0.1); /* 배경색 틴트 */
+}
+
+.choice-btn.teal:has(input:checked) {
+    border-color: #00FFFF;
+    box-shadow: 0 0 15px #00FFFF, inset 0 0 10px #00FFFF;
+    background-color: rgba(0, 255, 255, 0.1);
+}
+
+/* :has() 미지원 브라우저 대비용 (옵션) */
+.choice-btn input:checked + .choice-content .choice-label {
+    text-shadow: 0 0 5px currentColor;
+}
+
+
+/*====================================
+  6. 하단 네비게이션 버튼
+====================================*/
+.bottom-nav {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.btn-next {
+    padding: 10px 30px;
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #fff;
+    background-color: #5C3A21;
+    border: 3px solid #FFD700;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s, opacity 0.2s;
+}
+
+.btn-next:hover:not(:disabled) {
+    background-color: #6d472c;
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
+
+.btn-next:disabled {
+    background-color: #383838;
+    border: 3px solid #555;
+    color: #aaa;
+    cursor: not-allowed;
+}
+
+/*====================================
+  7. 반응형 디자인 (Mobile Optimization)
+====================================*/
+@media (max-width: 600px) {
+    /* 모바일: 상단 패딩 조정 */
+    body {
+        padding-top: 60px;
+    }
+
+    /* 모바일: 선택지 세로 배치 */
+    .choices-container {
+        flex-direction: column;
+    }
+
+    .choice-btn {
+        min-height: 60px; /* 높이 축소 */
+        width: 100%;
+    }
+
+    .quiz-main {
+        padding: 15px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+//     251120
+
+}
