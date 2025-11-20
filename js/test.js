@@ -169,4 +169,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 초기 상태 업데이트
     updateProgressAndCollectData();
+
+    // 251120
 });
