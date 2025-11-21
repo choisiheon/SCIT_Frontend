@@ -1,7 +1,7 @@
 // window.open() 대신 현재 창에서 이동하도록 수정
 function pgTest() {
-    // ./pages/test.html 경로로 현재 창에서 이동합니다.
-    window.location.href = "./pages/test.html";
+    // ./pages/test_jp.html 경로로 현재 창에서 이동합니다.
+    window.location.href = "./pages/test_jp.html";
 }
 
 function pgChar1() {
