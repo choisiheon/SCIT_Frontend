@@ -80,6 +80,7 @@
 #main1 .btn_wrap input[type='button'] {
     padding: 15px 40px;
     font-size: 1.2em; font-weight: bold;
+    font-family: 'Heir of Light', serif;
     cursor: pointer;
     border: 2px solid #00FFD1;
     background-color: transparent;
@@ -102,7 +103,6 @@
    [3] Main 2 구역 (캐러셀)
    ========================================= */
 #main2 {
-    font-family: 'Arial', sans-serif;
     background-color: #0d1217;
     color: #f0f0f0;
     line-height: 1.6;

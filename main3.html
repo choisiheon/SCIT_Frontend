@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>캐릭터 선택</title>
     <link rel="stylesheet" href="./css/main3.css" />
+    <link rel="stylesheet" href="./css/global.css">
 </head>
 <body>
 <section class="hero-section">
@@ -12,7 +13,7 @@
 
         <!-- 왼쪽: 캐릭터 그룹 이미지 -->
         <div class="hero-images">
-            <img src="assets/img/hero/attack.png" class="hero-img" id="heroCharacter">
+            <img src="assets/img/hero/attack.png" class="hero-img" id="heroCharacter" alt="영웅 캐릭터">
         </div>
 
         <!-- 오른쪽: 텍스트 영역 -->
@@ -20,9 +21,9 @@
             <h2 class="hero-title" id="roleTitle">공격</h2>
 
             <div class="hero-icons">
-                <img src="assets/img/icons/attack.png" class="icon-btn" onclick="changeRole('attack')">
-                <img src="assets/img/icons/shield.png" class="icon-btn" onclick="changeRole('tank')">
-                <img src="assets/img/icons/healthcare.png" class="icon-btn" onclick="changeRole('healer')">
+                <img src="assets/img/icons/attack.png" class="icon-btn" onclick="changeRole('attack')" alt="공격 아이콘">
+                <img src="assets/img/icons/shield.png" class="icon-btn" onclick="changeRole('tank')" alt="탱커 아이콘">
+                <img src="assets/img/icons/healthcare.png" class="icon-btn" onclick="changeRole('healer')" alt="힐러 아이콘">
             </div>
 
             <p class="hero-desc" id="roleDescription">

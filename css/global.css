@@ -1,0 +1,26 @@
+@font-face {
+    /* 원하는 글꼴 이름 지정 (CSS에서 사용될 이름) */
+    font-family: 'Heir of Light';
+
+    /* 글꼴 파일의 경로 지정. 파일이 CSS 파일과 동일한 위치에 있다면 파일 이름만 적습니다. */
+    src: url('../assets/fonts/HeirofLightRegular.ttf') format('truetype');
+
+    /* 글꼴의 굵기와 스타일을 지정합니다 (옵션).
+       일반적으로 이 레귤러 파일은 normal/400입니다. */
+    font-weight: normal;
+    font-style: normal;
+
+    /* 글꼴 로딩 방식 지정 (옵션). 페이지 로드 시점 조절 */
+    font-display: swap;
+}
+
+/* 폰트를 전역적으로 적용 */
+body {
+    font-family: 'Heir of Light', sans-serif;
+}
+
+/* 또는 특정 요소에만 적용 */
+/* h1, h2, p {
+  font-family: 'Heir of Light', sans-serif;
+}
+*/

@@ -9,25 +9,25 @@
             <div class="site-header">
                 <div class="header-inner">
                     <div class="simple-countdown" id="simpleCountdown">
-                        <span style="color: gray; font-size: 0.8em"> Until completion, </span>
-                        <span class="time-unit"><strong id="cd-days">00</strong> Days</span>
-                        <span class="time-unit"><strong id="cd-hours">00</strong> Hours</span>
-                        <span class="time-unit"><strong id="cd-mins">00</strong> minutes</span>
-                        <span class="time-unit"><strong id="cd-secs">00</strong> seconds</span>
+                        <span style="color: gray; font-size: 0.8em"> 수료까지, </span>
+                        <span class="time-unit"><strong id="cd-days">00</strong> 일</span>
+                        <span class="time-unit"><strong id="cd-hours">00</strong> 시간</span>
+                        <span class="time-unit"><strong id="cd-mins">00</strong> 분</span>
+                        <span class="time-unit"><strong id="cd-secs">00</strong> 초</span>
                     </div>
             
                     <div class="lang-wrap">
                         <button class="lang-btn" id="langBtn" aria-haspopup="true" aria-expanded="false">
                             <span class="globe">🌐</span>
                             <span>한국어</span>
-                            <svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <svg width="12" height="8" viewBox="0 0 12 8" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                                 <path d="M1 1L6 6L11 1" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
                         </button>
             
                         <div class="lang-dropdown" id="langDropdown" role="menu" aria-label="언어 선택">
-                            <button type="button" role="menuitem" data-lang="ko">한국어</button>
-                            <button type="button" role="menuitem" data-lang="jp">日本語</button>
+                            <button type="button" role="menuitem" data-lang="ko" id="lang-btn">한국어</button>
+                            <button type="button" role="menuitem" data-lang="jp" id="lang-btn">日本語</button>
                         </div>
                     </div>
                 </div>
@@ -40,6 +40,7 @@
     // ---------------------------------------------------------
     function getCSS() {
         return `
+            .lang-btn{ font-family: 'Heir of Light';}
             :root {
                 --green: #057a4a;
                 --text: #fff;
@@ -47,7 +48,7 @@
 
             body {
                 margin: 0;
-                font-family: "Malgun Gothic", "Apple SD Gothic Neo", sans-serif;
+                font-family: 'Heir of Light', sans-serif;
             }
 
             .site-header {
@@ -86,7 +87,6 @@
                 font-size: 22px; /* 숫자 크기 키움 */
                 font-weight: 1000;
                 color: var(--green); /* 숫자는 초록색 강조 */
-                font-family: 'Inter', sans-serif; /* 깔끔한 고딕 폰트 */
                 min-width: 28px; /* 숫자가 바뀌어도 덜덜거리지 않게 최소 너비 확보 */
                 text-align: right;
             }

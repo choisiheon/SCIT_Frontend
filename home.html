@@ -1,17 +1,31 @@
 <!DOCTYPE html>
 <html lang="ko">
-
 <head>
     <meta charset="UTF-8">
     <title>심리테스트</title>
+
+    <!-- 공통 JS -->
     <script src="./js/footer.js"></script>
     <script src="./js/header.js"></script>
+
+    <!-- main1 -->
     <script src="./js/main1.js"></script>
     <link rel="stylesheet" href="./css/main.css">
+
+    <!-- main3 -->
+    <link rel="stylesheet" href="./css/main3.css">
+
+    <!-- main4 -->
+    <link rel="stylesheet" href="./css/main4.css">
+
+    <link rel="stylesheet" href="./css/global.css">
 </head>
 
 <body>
 
+<!-- ========================================================= -->
+<!-- ===============   MAIN 1 (인트로 영상 페이지 )   =============== -->
+<!-- ========================================================= -->
 <section id="main1" class="visual_wrap">
 
     <div class="video_wrap">
@@ -35,7 +49,13 @@
     </div>
 
 </section>
-<!-- main1 끝 -->
+
+<!-- ⭐ 네온 구분선 -->
+<div class="section-divider"></div>
+
+<!-- ========================================================= -->
+<!-- =================== MAIN 2 (하이라이트) =================== -->
+<!-- ========================================================= -->
 
 <section id="main2" class="blz-highlights-carousel">
 
@@ -83,7 +103,7 @@
             </div>
             <div class="item-text">
                 <h3>데이터 기반 궁합 매칭</h3>
-                <p>나와 가장 잘 맞는, 또는 가장 피해야 할 팀원 유형을 데이터로 확인하세요.</p>
+                <p>나와 가장 잘 맞는, 또는 가장 피해야 할 팀원 유형을 데이터를 통해 확인하세요.</p>
             </div>
         </div>
 
@@ -91,44 +111,79 @@
 
 </section>
 
-<!-- main2 끝-->
+<!-- ⭐ 네온 구분선 -->
+<div class="section-divider"></div>
 
-<!--<div id="main2">-->
-<!--    <h1>동료 영웅들과 함께 싸우세요</h1>-->
-<!--    <p>최고의 팀원들과 프로젝트를 '캐리'하세요-->
-<!--        성향을 분석하고, 팀을 이루어 4월 30일의 마감일까지 완벽하게 생존하세요.</p>-->
-<!--    <table>-->
-<!--        <tr>-->
-<!--            <th>사진 1</th>-->
-<!--            <th>사진 1</th>-->
-<!--            <th>사진 1</th>-->
-<!--            <th>사진 1</th>-->
-<!--        </tr>-->
-<!--        <tr>-->
-<!--            <td>트롤 방지 및 멘탈 보호</td>-->
-<!--            <td>새로운 유형의 발견</td>-->
-<!--            <td>평단의 극찬을 받을 협업</td>-->
-<!--            <td>데이터 기반 궁합 매칭</td>-->
-<!--        </tr>-->
-<!--    </table>-->
-<!--</div>-->
+<!-- ========================================================= -->
+<!-- ======================= MAIN 3 =========================== -->
+<!-- ========================================================= -->
+<section id="main3-hero" class="hero-section">
+    <div class="hero-inner">
 
-<div id="main3">
-    <table>
-        <tr>
-            <th>영웅사진</th>
-            <th> | 설명</th>
-        </tr>
-    </table>
-</div>
-<div id="main4">
-    <div>
-        <p>전체캐릭터 나열</p>
-        <div class="button-container">
-            <input id='char1' type='button' onclick='pgChar1()' value='캐릭터 상세보기' />
+        <!-- 왼쪽 캐릭터 이미지 -->
+        <div class="hero-images">
+            <img src="assets/img/hero/attack.png" class="hero-img" id="heroCharacter" alt="영웅 캐릭터">
+        </div>
+
+        <!-- 오른쪽 텍스트 -->
+        <div class="hero-content">
+            <h2 class="hero-title" id="roleTitle">공격</h2>
+
+            <div class="hero-icons">
+                <img src="assets/img/icons/attack.png" class="icon-btn" onclick="changeRole('attack')" alt="공격 아이콘">
+                <img src="assets/img/icons/shield.png" class="icon-btn" onclick="changeRole('tank')" alt="탱커 아이콘">
+                <img src="assets/img/icons/healthcare.png" class="icon-btn" onclick="changeRole('healer')" alt="힐러 아이콘">
+            </div>
+
+            <p class="hero-desc" id="roleDescription">
+                공격 영웅은 빠르고 강력한 기술로 적을 제압하는 핵심 역할입니다.
+            </p>
         </div>
     </div>
-</div>
-</body>
+</section>
 
+<script src="./js/main3.js"></script>
+
+<!-- ⭐ 네온 구분선 -->
+<div class="section-divider"></div>
+
+<!-- ========================================================= -->
+<!-- ======================= MAIN 4 =========================== -->
+<!-- ========================================================= -->
+
+<section id="CHAR_SELECTOR">
+
+    <!-- 배경 + 큰 캐릭터 -->
+    <div class="visual-card">
+        <div class="visual-bg" id="visualBg"></div>
+
+        <div class="portrait">
+            <img id="charPortrait" src="" alt="">
+        </div>
+    </div>
+
+    <!-- 텍스트 박스 -->
+    <div class="info-overlay">
+        <div class="warrior-info">
+            <h2 class="title" id="charName"></h2>
+            <p class="description" id="charDesc"></p>
+
+            <a id="btnDetail" href = "#" class="btn-detail">
+                자세히 알아보기 <span class="arrow">→</span>
+            </a>
+
+            <button class="btn-start" onclick='pgTest()'>지금 시작하기</button>
+        </div>
+    </div>
+
+    <!-- 캐릭터 선택창 -->
+    <div class="char-list-frame">
+        <div class="char-list-grid" id="charList"></div>
+    </div>
+
+</section>
+
+<script src="./js/main4.js" defer></script>
+<!-- //251120-->
+</body>
 </html>
