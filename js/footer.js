@@ -2,12 +2,12 @@
     function getFooterCSS() {
         return `
             .site-footer {
+                font-family: 'Heir of Light', sans-serif;
                 background-color: #000; /* 검정 배경 */
                 color: #fff;            /* 흰색 글씨 */
                 padding: 25px 0 25px 0;        /* 위아래 여백을 줄여서 슬림하게 (헤더의 절반 정도) */
                 font-size: 12px;        /* 글씨 크기도 작게 */
                 text-align: center;
-                font-family: "Pretendard", "Malgun Gothic", sans-serif;
                 border-top: 1px solid rgba(255, 255, 255, 0.1); /* 아주 연한 위쪽 테두리 */
             }
 
@@ -57,16 +57,16 @@
                 <div class="footer-content">
                     <span class="footer-label">제작자 : </span>
                     
-                    <a href="./pages/characterInfo.html?code=ESFA" class="footer-link">김혜진</a>
+                    <a href="../pages/characterInfo.html?code=ESFA" class="footer-link">김혜진</a>
                     <span class="footer-sep">|</span>
                     
-                    <a href="./pages/characterInfo.html?code=ESRA" class="footer-link">이하늘</a>
+                    <a href="../pages/characterInfo.html?code=ESRA" class="footer-link">이하늘</a>
                     <span class="footer-sep">|</span>
                     
-                    <a href="./pages/characterInfo.html?code=IPCR" class="footer-link">조유정</a>
+                    <a href="../pages/characterInfo.html?code=IPRC" class="footer-link">조유정</a>
                     <span class="footer-sep">|</span>
                     
-                    <a href="./pages/characterInfo.html?code=ISRA" class="footer-link">최시헌</a>
+                    <a href="../pages/characterInfo.html?code=ISRA" class="footer-link">최시헌</a>
                     <span class="footer-sep">|</span>
                 </div>
             </footer>

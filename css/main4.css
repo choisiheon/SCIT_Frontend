@@ -127,6 +127,7 @@ body{
     padding: 15px 40px;
     border-radius: 4px;
     font-size: 18px;
+    font-family: 'Heir of Light', serif;
     font-weight: 700;
     cursor: pointer;
     transition: background .2s;

@@ -80,6 +80,7 @@
 #main1 .btn_wrap input[type='button'] {
     padding: 15px 40px;
     font-size: 1.2em; font-weight: bold;
+    font-family: 'Heir of Light', serif;
     cursor: pointer;
     border: 2px solid #00FFD1;
     background-color: transparent;
