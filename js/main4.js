@@ -98,7 +98,7 @@ const characters = [
   },
   {
     id: "Scholar",
-    name: "학사",
+    name: "학자",
     code: "IPRC",
     desc: "#논리적 #분석적 #실행력부족 #도파민중독",
     bg: "./assets/img/char/Scholar_bg.png",
